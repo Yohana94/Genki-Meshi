@@ -1,24 +1,44 @@
-# README
+# Genki-Meshi
+This Repository is dedicated for my Portfolio (DMM)
+https://docs.google.com/spreadsheets/d/1CiiUiUcDM1S711LNKsAhsWzfhBpI0-ks9Iql9-wagJ0/edit?usp=sharing
+# <ゲンキメシ>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ダイエット中の方向けの健康食品・ヘルシーメニューのWebアプリを作りたいです。 この Web アプリケーションは、健康食品のメニューを写真、説明、参照リンクとともに表示します。 この Web アプリケーションには、選択した食材からメニューに含まれるカロリー数を計算する機能があります。
 
-Things you may want to cover:
+### サイトテーマ
+ダイエットのためのフードメニューレビューWEBアプリ
 
-* Ruby version
+### テーマを選んだ理由
+好きな食材を選んでヘルシーメニューのレシピを作りたい。 食材のカロリーを知ってからレシピを決めて材料を買う
 
-* System dependencies
+### ターゲットユーザ
+体重維持のためにダイエットをしている方や、特定の病気（糖尿病）を理由にダイエットをしている方が対象です。
 
-* Configuration
+### 主な利用シーン
+この Web アプリケーションを開くと、タイトルと写真付きの健康食品メニューが表示されます。 登録していない人は、レシピの説明を見ることはできますが、レシピの作成、カロリー計算、手作りレシピの投稿はできません。 このWebアプリケーションには、食品成分ごとのカロリーカウンター計算などの機能があります。 食事の種類に応じて料理をグループ化する料理の性別もあります (高繊維レシピ​​低ナトリウムレシピ低カロリーレシピ植物ベースのレシピ)
 
-* Database creation
+## 設計書
 
-* Database initialization
+<...>
 
-* How to run the test suite
+## 開発環境
 
-* Services (job queues, cache servers, search engines, etc.)
+- OS：Microsoft
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
+## 使用素材
 
-* ...
+アプリケーション名、URL
+動作がわかるような画像や gif 動画
+アプリケーションの詳細な説明
+使っている言語やフレームワークのバージョン
+環境構築に必要な手順
+インフラ・フロント・バックそれぞれの技術選定
+実装した機能
+設計書
+使用方法
+作者（アカウント）
