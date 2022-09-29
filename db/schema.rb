@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 2022_09_28_113212) do
   create_table "recipes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id"
+    t.integer "user_id"
+    t.string "recipe_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,6 +54,10 @@ ActiveRecord::Schema.define(version: 2022_09_28_113212) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name"
+    t.string "profil_image_id"
+    t.datetime "birthday"
+    t.boolean "is_active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

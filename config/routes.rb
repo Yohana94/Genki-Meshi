@@ -1,4 +1,31 @@
 Rails.application.routes.draw do
+  namespace :admins do
+    get 'ingredients/new'
+    get 'ingredients/create'
+  end
+  namespace :admins do
+    get 'users/index'
+    get 'users/show'
+    get 'users/edit'
+    get 'users/update'
+  end
+  namespace :admins do
+    get 'genres/index'
+    get 'genres/create'
+    get 'genres/edit'
+    get 'genres/update'
+  end
+  namespace :admins do
+    get 'recipes/index'
+    get 'recipes/new'
+    get 'recipes/create'
+    get 'recipes/update'
+    get 'recipes/show'
+    get 'recipes/edit'
+  end
+  namespace :admins do
+    get 'homes/top'
+  end
   namespace :users do
     get 'calorie_dentaku/show'
   end
