@@ -1,2 +1,41 @@
-<h1>Admins::Recipes#new</h1>
-<p>Find me in app/views/admins/recipes/new.html.erb</p>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+
+        <span><h1>レシピ新規登録</h1></span>
+        <%= form_with model: @recipe, url:  admins_recipes_path, method: :post do |f| %>
+         <div class="field">
+            <%= f.file_field :image, accept: "image/*" %>
+         </div>
+
+          <div class="field">
+            <%= f.text_field :recipe_name %>
+            <p class="control has-icons-left">
+
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <%= f.text_area :body %>
+            <p class="control has-icons-left">
+
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="actions">
+            <%= f.submit '投稿', class: "button is-success" %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</section>

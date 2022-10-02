@@ -13,7 +13,7 @@ import "channels"
 // import "bootstrap";
 // import "../stylesheets/application"
 // import '../stylesheets/mystyle.css'
-// import '@fortawesome/fontawesome-free/js/all'
+import '@fortawesome/fontawesome-free/js/all'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

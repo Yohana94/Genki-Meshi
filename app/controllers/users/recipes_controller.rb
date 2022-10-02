@@ -10,4 +10,8 @@ class Users::RecipesController < ApplicationController
 
   def show
   end
+
+  def search
+     @recipes = Recipe.search(params[:search])
+  end
 end
