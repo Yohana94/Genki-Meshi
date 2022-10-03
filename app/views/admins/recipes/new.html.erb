@@ -2,40 +2,95 @@
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-5">
+      <div class="column is-7">
 
-        <span><h1>レシピ新規登録</h1></span>
-        <%= form_with model: @recipe, url:  admins_recipes_path, method: :post do |f| %>
-         <div class="field">
+        <div class="container">
+          <h1 class="title has-text-centered has-text-link">レシピ新規登録</h1>
+        </div></br>
+
+<%= form_with model: @recipe, url:  admins_recipes_path, method: :post do |f| %>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label has-text-info">レシピ画像</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+          <div class="control">
             <%= f.file_field :image, accept: "image/*" %>
-         </div>
-
-          <div class="field">
-            <%= f.text_field :recipe_name %>
-            <p class="control has-icons-left">
-
-              <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
-              </span>
-            </p>
           </div>
+        </div>
+    </div>
+  </div>
+</div>
 
-          <div class="field">
-            <%= f.text_area :body %>
-            <p class="control has-icons-left">
-
-              <span class="icon is-small is-left">
-                <i class="fas fa-lock"></i>
-              </span>
-            </p>
-          </div>
-
-          <div class="actions">
-            <%= f.submit '投稿', class: "button is-success" %>
-          </div>
-        <% end %>
-
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label has-text-info">レシピ名</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <%= f.text_field :recipe_name %>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label has-text-info">作り方</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+         <%= f.text_area :body %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label has-text-info">ジャンル</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <%#= f.grouped_collection_select (:genre_id, Genre.all, :name, :id) %></div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label has-text-info">情報 栄養</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+         <%= f.text_area :body %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <!-- Left empty for spacing -->
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <div class="action">
+          <%= f.submit '投稿', class: "button is-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <% end %>
+    </div>
     </div>
   </div>
 </section>

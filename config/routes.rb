@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     #   get 'users/show'
     #   get 'users/edit'
     #   patch 'users/update'
-    resources :genres, only: [:index, :create,:edit, :update]
+    resources :genres, only: [:index, :create,:edit, :update, :new]
     # get 'genres/index'
     # post 'genres/create'
     # get 'genres/edit'

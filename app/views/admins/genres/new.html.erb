@@ -1,0 +1,31 @@
+
+<section class="hero is-small">
+
+  <div class="hero-body">
+    <p class="title has-text-centered has-text-link">
+      ジャンル一覧・作成
+    </p>
+  </div>
+
+<%= form_with model: @recipe, url:  admins_recipes_path, method: :post do |f| %>
+<div class="column columns is-centered">
+
+  <div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label has-text-info">ジャンル名 </label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <%= f.text_field :recipe_name %>
+      </div>
+    </div>
+  </div>
+    <div class="action">
+        <%= f.submit '投稿', class: "button is-success" %>
+    </div>
+  </div>
+ <% end %>
+  </div>
+
+</section>
