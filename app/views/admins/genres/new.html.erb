@@ -7,25 +7,57 @@
     </p>
   </div>
 
-<%= form_with model: @recipe, url:  admins_recipes_path, method: :post do |f| %>
-<div class="column columns is-centered">
+<%= form_with model: @genre, url: new_admins_genre_path, method: :get do |f| %>
 
-  <div class="field is-horizontal">
+  <div class="field is-horizontal is-centered">
+  <div class="column columns is-centered mb-2 ml-6">
+
   <div class="field-label">
     <label class="label has-text-info">ジャンル名 </label>
+
   </div>
   <div class="field-body">
     <div class="field is-narrow">
       <div class="control">
-        <%= f.text_field :recipe_name %>
+        <%= f.text_field :genre_name %>
       </div>
     </div>
   </div>
-    <div class="action">
-        <%= f.submit '投稿', class: "button is-success" %>
+
+  <div class="field-body">
+    <div class="field is-narrow">
+    <div class="control">
+        <%= f.submit '新規登録', class: "button is-success" %>
     </div>
   </div>
- <% end %>
   </div>
+
+  </div>
+  </div>
+
+ <% end %>
+<div class="column is-half is-offset-one-quarter">
+<table class="table table is-bordered">
+     <thead class="has-background-primary-light">
+      <tr>
+      <th>ジャンル</th>
+      <th></th>
+      <th></th>
+      </tr>
+      </thead>
+
+      <tfoot>
+      <tr>
+      <th>
+        <%= @genres.each do |genre| %>
+        <%= @genre.name %>
+        <% end %>
+      </th>
+      <th><%= link_to "編集", admins_recipes_path, class:"button has-text-warning-light has-background-info-dark"%></th>
+      <th><%= link_to "削除", admins_recipes_path, method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+      </tr>
+      </tfoot>
+  </table>
+</div>
 
 </section>

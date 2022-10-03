@@ -1,2 +1,71 @@
-<h1>Admins::Ingredients#new</h1>
-<p>Find me in app/views/admins/ingredients/new.html.erb</p>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-7">
+
+        <div class="container">
+          <h1 class="title has-text-centered has-text-link">材料一覧</h1>
+        </div></br>
+
+<%= form_with model: @ingredient, url: new_admins_ingredient_path do |f| %>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label has-text-info">材料画像</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+          <div class="control">
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label has-text-info">材料名</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <%= f.text_field :ingredient_name %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label has-text-info">カロリー数</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <%= f.number_field :calorie %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <!-- Left empty for spacing -->
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <div class="action">
+          <%= f.submit '投稿', class: "button is-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <% end %>
+    </div>
+    </div>
+  </div>
+</section>

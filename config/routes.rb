@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   devise_for :admins
 
   namespace :admins do
-    resources :ingredients, only: [:new, :create]
+    resources :ingredients, only: [:new, :create, :index]
     #   get 'ingredients/new'
     #   get 'ingredients/create'
+    #   get 'ingredients/index'
     resources :users, only: [:index, :show,:edit, :update]
     #   get 'users/index'
     #   get 'users/show'
