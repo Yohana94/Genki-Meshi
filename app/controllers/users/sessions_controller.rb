@@ -1,10 +1,11 @@
-class Users::SessionsController < ApplicationController
-  def new
+class Users::SessionsController < Devise::SessionsController
+  protected
+
+  def after_sign_in_path_for(user)
+    root_path
   end
 
-  def create
-  end
-
-  def destroy
+  def after_sign_out_path_for(user)
+    root_path
   end
 end

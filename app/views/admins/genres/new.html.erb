@@ -7,7 +7,7 @@
     </p>
   </div>
 
-<%= form_with model: @genre, url: new_admins_genre_path, method: :get do |f| %>
+<%= form_with model: @genre, url: admins_genres_path, method: :post do |f| %>
 
   <div class="field is-horizontal is-centered">
   <div class="column columns is-centered mb-2 ml-6">
@@ -49,8 +49,9 @@
       <tfoot>
       <tr>
       <th>
-        <%= @genres.each do |genre| %>
-        <%= @genre.name %>
+        <%# byebug %>
+        <% @genres.each do |genre| %>
+        <%= genre.genre_name %>
         <% end %>
       </th>
       <th><%= link_to "編集", admins_recipes_path, class:"button has-text-warning-light has-background-info-dark"%></th>

@@ -1,18 +1,23 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-  :registrations => 'users/registrations',
-  :sessions => 'users/sessions',
-  :passwords => 'users/passwords'
-}
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
+  }
 
-  devise_for :admins
+  devise_for :admins, controllers: {
+    registrations: 'admins/registrations',
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords'
+  }
 
   namespace :admins do
+
     resources :ingredients, only: [:new, :create, :index]
     #   get 'ingredients/new'
     #   get 'ingredients/create'
     #   get 'ingredients/index'
-    resources :users, only: [:index, :show,:edit, :update]
+    resources :users, only: [:index]
     #   get 'users/index'
     #   get 'users/show'
     #   get 'users/edit'
@@ -43,7 +48,7 @@ Rails.application.routes.draw do
   resources :homes, only: [:top, :about]
     # get 'homes/top'
     # get 'homes/about'
-  resources :ingredients, only: [:create, :new]
+  resources :ingredients, only: [:index]
     # get 'ingredients/create'
     # get 'ingredients/new'
   resources :recipes, only: [:create, :new, :index, :show] do

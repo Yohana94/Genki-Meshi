@@ -4,6 +4,7 @@ class Admins::GenresController < ApplicationController
   end
 
   def new
+    @genres = Genre.all
     @genre = Genre.new
   end
 
@@ -23,9 +24,12 @@ class Admins::GenresController < ApplicationController
     redirect_to new_admins_genre_path
   end
 
+  def collection
+  end
+
   private
 
-  def recipe_params
+  def genre_params
     params.require(:genre).permit(:genre_name)
   end
 end
