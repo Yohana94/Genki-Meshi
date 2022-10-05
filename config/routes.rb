@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -38,7 +39,8 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
 
-  namespace :users do
+namespace :users do
+
   resources :calorie_dentakus, only: [:show]
    # get 'calorie_dentakus/show'
   resources :sessions, only: [:new, :create, :destroy]
@@ -51,6 +53,7 @@ Rails.application.routes.draw do
   resources :ingredients, only: [:index]
     # get 'ingredients/create'
     # get 'ingredients/new'
+  resources :my_memo, only: [:show]
   resources :recipes, only: [:create, :new, :index, :show] do
       collection do
         get 'search', to: 'recipes#search'
