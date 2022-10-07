@@ -23,12 +23,12 @@ Rails.application.routes.draw do
     #   get 'users/show'
     #   get 'users/edit'
     #   patch 'users/update'
-    resources :genres, only: [:index, :create,:edit, :update, :new]
+    resources :genres, only: [:index, :create,:edit, :update, :new, :category1, :category2, :category3, :category4]
     # get 'genres/index'
     # post 'genres/create'
     # get 'genres/edit'
     # patch 'genres/update'
-    resources :recipes, only: [:index, :create, :edit, :update, :new, :show]
+    resources :recipes, only: [:index, :create, :edit, :update, :destroy, :new, :show]
     # get 'recipes/index'
     # get 'recipes/new'
     # post 'recipes/create'

@@ -1,53 +1,40 @@
-<div class="container m-4">
+<div class="container m-6 pl-6">
    <article class="media">
 
-  <figure class="media-left">
-    <%= image_tag 'avocado', size: "500x500" %>
-  </figure>
-  <div class="box has-background-danger-dark"></br>
-    <div class="media-content has-text-white">
-      <h2>食から健康的なライフスタイルを始めましょう。
-          このウェブを使えば、必要なカロリーを
-          計算してヘルシーなメニューを
-          作ることができます。
-          ヘルシーなだけでなく、
-          毎日の良い食事メニューをデザインしましょう</h2></br>
-    </div>
-  </div>
+<figure class="media-left">
+  <%= image_tag 'avocado', size: "510x510" %>
+</figure>
 
- <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="columns is-centered">
-          <div class="column is-4">
-            <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
-            </figure>
-          </div>
-          <div class="column is-8">
-            <table class="table is-fullwidth">
-              <tr>
-                <td class="is-size-4">
-                  <div class="box">
-                    I'm in a box.
-                  </div>
-                </td>
+<div class="field">
 
-                </td>
-                <td>
-                </td>
-              </tr>
-            </table>
-            <table class="table is-fullwidth">
-              <tr>
-                <td>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="box has-background-danger-dark p-3"></br>
+  <div class="media-content has-text-white">
+    <h2>食から健康的なライフスタイルを始めましょう。
+        このウェブを使えば、必要なカロリーを
+        計算してヘルシーメニューを
+        作ることができます。
+        今日、すべての慢性疾患の 95% 以上が、食品の選択、有毒な食品成分、
+        栄養不足、運動不足によって引き起こされています。」 - マイク・アダムス
+    </h2></br>
   </div>
+</div>
+
+<div class="container ml-4 p-0">
+  <div class="box has-background-warning has-text-centered">
+    <%= link_to "高繊維レシピ", users_recipes_path, class: "button is-primary" %>
+  </div>
+  <div class="box has-background-warning has-text-centered">
+    <%= link_to "低ナトリウムレシピ", users_recipes_path, class: "button is-primary" %>
+  </div>
+  <div class="box has-background-warning has-text-centered">
+    <%= link_to "低カロリーレシピ", users_recipes_path, class: "button is-primary" %>
+  </div>
+  <div class="box has-background-warning has-text-centered">
+    <%= link_to "プラントベース", users_recipes_path, class: "button is-primary" %>
+  </div>
+</div>
+
+</div>
 
   </article>
 </div>

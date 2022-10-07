@@ -1,5 +1,6 @@
 class Admins::RecipesController < ApplicationController
   def index
+    @recipes = Recipe.all
   end
 
   def new
@@ -18,9 +19,16 @@ class Admins::RecipesController < ApplicationController
   end
 
   def show
+    @recipe = Recipe.find(params[:id])
   end
 
   def edit
+  end
+
+  def destroy
+    recipe = Recipe.find(params[:id])
+    recipe.destroy
+    redirect_to admins_recipes, notice: "レシピを削除しました。"
   end
 
   private

@@ -1,0 +1,38 @@
+<div class="box">
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+
+      <div class="container">
+        <h1 class="title has-text-centered has-text-link">レシピ一覧</h1>
+      </div></br>
+
+     <table class="table table is-bordered">
+     <thead class="has-background-primary-light">
+      <tr>
+      <th>レシピid</th>
+      <th>レシピ名</th>
+      <th>ジャンル</th>
+      <th></th>
+      <th></th>
+      </tr>
+      </thead>
+
+      <tfoot>
+      <% @recipes.each do |recipe| %>
+      <tr>
+      <th><%= recipe.id %></th>
+      <th><%= recipe.recipe_name %></th>
+      <th><%= recipe.genre.genre_name %></th>
+      <th><%= link_to "詳細", admins_recipes_path, class:"button is-warning"%></th>
+      <th><%#= link_to "削除", admins_recipe_path(@recipe), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+      </tr>
+      <% end %>
+      </tfoot>
+      </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>

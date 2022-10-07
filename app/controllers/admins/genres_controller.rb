@@ -24,7 +24,16 @@ class Admins::GenresController < ApplicationController
     redirect_to new_admins_genre_path
   end
 
-  def collection
+  def category1
+  end
+
+  def category2
+  end
+
+  def category3
+  end
+
+  def category4
   end
 
   private

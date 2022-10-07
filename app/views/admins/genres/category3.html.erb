@@ -1,0 +1,40 @@
+
+<section class="hero is-small">
+
+  <div class="hero-body">
+    <p class="title has-text-centered has-text-link">
+      ジャンル編集
+    </p>
+  </div>
+
+<%= form_with model: @genre, url: edit_admins_genre_path, method: :get do |f| %>
+
+  <div class="field is-horizontal is-centered">
+  <div class="column columns is-centered mb-2 ml-6">
+
+  <div class="field-label">
+    <label class="label has-text-info">ジャンル名 </label>
+
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <%= f.text_field :genre_name %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-body">
+    <div class="field is-narrow">
+    <div class="control">
+        <%= f.submit '変更を保存', class: "button is-success" %>
+    </div>
+  </div>
+  </div>
+
+  </div>
+  </div>
+
+ <% end %>
+
+</section>
