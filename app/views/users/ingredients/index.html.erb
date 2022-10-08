@@ -5,8 +5,12 @@
             <div class="card-content">
               <div class="tile is-parent">
                 <article class="tile is-child notification is-info">
-                  <p class="title has-text-centered">Broccoli</p>
-                  <p class="has-text-centered"><%= f.select :amount, [['one',1], ['two',2], ['three',3]] %></p>
+                  <h2 class="has-text-centered">ブロッコリー</h2>
+                  <p class="has-text-centered">
+                    <%= form_with model: @ingredient, url:'/users/ingredients' do |f| %>
+                    <%= f.select :amount, [[1,1], [2,2], [3,3], [3,3], [3,3], [3,3], [3,3], [3,3], [3,3], [3,3]] %>
+                    <% end %>
+                    </p>
                 <figure class="image">
                   <%= image_tag 'broccoli', size: "64x64" %>
                 </figure>
