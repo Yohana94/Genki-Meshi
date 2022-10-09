@@ -16,6 +16,13 @@ class Admins::RecipesController < ApplicationController
   end
 
   def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+    flash[:notice]="You have updated book successfully."
+    redirect_to admins_recipe_path(@recipe.id)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -23,17 +30,18 @@ class Admins::RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
   end
 
   def destroy
-    recipe = Recipe.find(params[:id])
+    recipe = Recipe.find_by_id(params[:id])
     recipe.destroy
-    redirect_to admins_recipes, notice: "レシピを削除しました。"
+    redirect_to admins_recipes_path, notice: "レシピを削除しました。"
   end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(:recipe_name, :image, :body)
+    params.require(:recipe).permit(:recipe_name, :image, :body, :nutrition, :ingredient)
   end
 end

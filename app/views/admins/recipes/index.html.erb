@@ -24,8 +24,8 @@
       <th><%= recipe.id %></th>
       <th><%= recipe.recipe_name %></th>
       <th><%= recipe.genre.genre_name %></th>
-      <th><%= link_to "詳細", admins_recipes_path, class:"button is-warning"%></th>
-      <th><%#= link_to "削除", admins_recipe_path(@recipe), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+      <th><%= link_to "詳細", admins_recipe_path(recipe.id), class:"button is-warning"%></th>
+      <th><%= link_to "削除", admins_recipe_path(recipe.id), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
       </tr>
       <% end %>
       </tfoot>
