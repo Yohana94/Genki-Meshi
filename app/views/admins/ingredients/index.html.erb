@@ -14,18 +14,17 @@
       <th>材料名</th>
       <th>カロリー数</th>
       <th></th>
-      <th></th>
       </tr>
       </thead>
 
       <tfoot>
+      <% @ingredients.each do |ingredient| %>
       <tr>
-      <th><%#= @genre.id %></th>
-      <th><%#= @recipe.name %></th>
-      <th><%#= @genre.name %></th>
-      <th><%= link_to "詳細", admins_recipes_path, class:"button is-warning"%></th>
-      <th><%= link_to "削除", admins_recipes_path, method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+      <th><%= image_tag @ingredient.image %></th>
+      <th><%= ingredient.name %></th>
+      <th><%= ingredient.calorie %></th>
       </tr>
+      <% end %>
       </tfoot>
       </table>
 

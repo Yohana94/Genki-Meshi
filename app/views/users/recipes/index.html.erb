@@ -1,12 +1,3 @@
-<section class="hero is-success">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        レシピ一覧
-      </h1>
-    </div>
-  </div>
-</section>
 
 <section class="section">
   <div class="container">
@@ -16,7 +7,7 @@
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <%= link_to recipe_path(recipe) do %>
+                <%= link_to admins_recipes_path(recipe) do %>
                   <%= attachment_image_tag recipe, :image %>
                 <% end %>
               </figure>
@@ -25,11 +16,11 @@
               <div class="media">
                 <div class="media-left">
                   <figure class="image is-48x48">
-                    <%= attachment_image_tag recipe.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                    <%#= attachment_image_tag recipe.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
                   </figure>
                 </div>
                 <div class="media-content">
-                  <div class="title"><%=link_to recipe.user.username, user_path(recipe.user) %></div>
+                  <div class="titzale"><%#=link_to recipe.user.username, user_path(recipe.user) %></div>
                 </div>
               </div>
 

@@ -4,10 +4,12 @@ class Admins::IngredientsController < ApplicationController
   end
 
   def create
-    ingredient = Ingredient.new(ingredient_params)
-    recipe.admin_id = current_admin.id
-    recipe.save
-    redirect_to new_admins_ingredient_path
+    @ingredients = Ingredient.new(ingredient_params)
+    if @ingredients.save
+      redirect_to admins_ingredients_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -16,7 +18,7 @@ class Admins::IngredientsController < ApplicationController
 
   private
 
-  def recipe_params
+  def ingredient_params
     params.require(:ingredient).permit(:ingredient_name, :image, :calorie)
   end
 end

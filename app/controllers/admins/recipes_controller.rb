@@ -8,11 +8,12 @@ class Admins::RecipesController < ApplicationController
   end
 
   def create
-    # byebug
-    recipe = Recipe.new(recipe_params)
-    recipe.admin_id = current_admin.id
-    recipe.save
-    redirect_to admins_homes_top_path
+    @recipe = current_admin.recipes.new(recipe_params)
+    if @recipe.save
+      redirect_to admins_homes_top_path
+    else
+      render :new
+    end
   end
 
   def update
@@ -42,6 +43,6 @@ class Admins::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:recipe_name, :image, :body, :nutrition, :ingredient)
+    params.require(:recipe).permit(:recipe_name, :image, :body, :nutrition, :genre_id, :ingredient_name)
   end
 end

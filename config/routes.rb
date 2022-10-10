@@ -23,12 +23,19 @@ Rails.application.routes.draw do
     #   get 'users/show'
     #   get 'users/edit'
     #   patch 'users/update'
-    resources :genres, only: [:index, :create,:edit, :update, :new, :category1, :category2, :category3, :category4]
+    resources :genres, only: [:index, :create, :edit, :update, :new] do
+      collection do
+        get :category1
+        get :category2
+        get :category3
+        get :category4
+      end
+    end
     # get 'genres/index'
     # post 'genres/create'
     # get 'genres/edit'
     # patch 'genres/update'
-    resources :recipes, only: [:index, :create, :edit, :update, :destroy, :new, :show]
+    resources :recipes
     # get 'recipes/index'
     # get 'recipes/new'
     # post 'recipes/create'
@@ -41,22 +48,28 @@ Rails.application.routes.draw do
 
 namespace :users do
 
+  resources :users, only: [:show]
   resources :calorie_dentakus, only: [:show]
    # get 'calorie_dentakus/show'
   resources :sessions, only: [:new, :create, :destroy]
     # get 'sessions/new'
     # post 'sessions/create'
     # delete 'sessions/destroy'
-  resources :homes, only: [:top, :about]
+  resources :homes, only: [] do
+    collection do
+      get :top
+      get :about
+    end
+  end
     # get 'homes/top'
     # get 'homes/about'
   resources :ingredients, only: [:index]
     # get 'ingredients/create'
     # get 'ingredients/new'
-  resources :my_memo, only: [:show]
-  resources :recipes, only: [:create, :new, :index, :show] do
+    resources :my_memo, only: [:show]
+    resources :recipes, only: [:create, :new, :index, :show] do
       collection do
-        get 'search', to: 'recipes#search'
+        get :search
       end
     end
   end

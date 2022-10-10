@@ -5,10 +5,10 @@
       <div class="column is-7">
 
         <div class="container">
-          <h1 class="title has-text-centered has-text-link">材料一覧</h1>
+          <h1 class="title has-text-centered has-text-link">材料作成</h1>
         </div></br>
 
-<%= form_with model: @ingredient, url: new_admins_ingredient_path do |f| %>
+<%= form_with model: @ingredient, url: admins_ingredients_path, method: :post do |f| %>
 <div class="field is-horizontal">
   <div class="field-label is-normal">
     <label class="label has-text-info">材料画像</label>

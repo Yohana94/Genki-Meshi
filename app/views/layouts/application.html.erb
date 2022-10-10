@@ -34,49 +34,8 @@
     <nav class="navbar has-background-danger-light" role="navigation" aria-label="main navigation">
       <div class="navbar-brand has-text-centered is-5">
 
-        <% if user_signed_in? %>
 
-          <div class="navbar-item">
-            <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "プロフィール", admins_users_path, method: :get, class: "has-text-dark" %>
-            </h1>
-          </div>
-
-          <div class="navbar-item">
-            <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "レシピ一覧", users_recipes_path, class: "has-text-dark" %>
-            </h1>
-          </div>
-
-          <div class="navbar-item">
-            <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "会員一覧",users_users_path, class: "has-text-dark" %>
-            </h1>
-          </div>
-
-          <div class="navbar-item">
-            <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "材料一覧",users_ingredients_path, class: "has-text-dark" %>
-            </h1>
-          </div>
-
-          <div class="navbar-item">
-            <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "カロリー電卓",users_calorie_dentaku_path, class: "has-text-dark" %>
-            </h1>
-          </div>
-          <div class="navbar-item">
-            <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "レシピ作成",new_users_recipe_path, class: "has-text-dark" %>
-            </h1>
-          </div>
-
-          <div class="navbar-item">
-            <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "ログアウト",destroy_user_session_path, method: :delete, class: "has-text-dark" %>
-            </h1>
-          </div>
-        <% elsif admin_signed_in? %>
+        <% if admin_signed_in? %>
           <div class="navbar-item">
             <h1 class="title is-5" style="font-family: cursive;">
               <%= link_to "レシピ新規登録",new_admins_recipe_path, method: :get, class: "has-text-dark" %>
@@ -85,7 +44,7 @@
 
           <div class="navbar-item">
             <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "材料一覧",admins_ingredients_path, class: "has-text-dark" %>
+              <%= link_to "材料一覧", admins_ingredients_path, class: "has-text-dark" %>
             </h1>
           </div>
           <div class="navbar-item">
@@ -106,6 +65,49 @@
           <div class="navbar-item">
             <h1 class="title is-5" style="font-family: cursive;">
               <%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: "has-text-dark" %>
+            </h1>
+          </div>
+
+        <% elsif user_signed_in? %>
+
+          <div class="navbar-item">
+            <h1 class="title is-5" style="font-family: cursive;">
+              <%= link_to "プロフィール", admins_users_path, method: :get, class: "has-text-dark" %>
+            </h1>
+          </div>
+
+          <div class="navbar-item">
+            <h1 class="title is-5" style="font-family: cursive;">
+              <%= link_to "レシピ一覧", users_recipes_path, class: "has-text-dark" %>
+            </h1>
+          </div>
+
+          <div class="navbar-item">
+            <h1 class="title is-5" style="font-family: cursive;">
+              <%= link_to "アバウト", users_recipes_path, class: "has-text-dark" %>
+            </h1>
+          </div>
+
+          <div class="navbar-item">
+            <h1 class="title is-5" style="font-family: cursive;">
+              <%= link_to "材料一覧",users_ingredients_path, class: "has-text-dark" %>
+            </h1>
+          </div>
+
+          <div class="navbar-item">
+            <h1 class="title is-5" style="font-family: cursive;">
+              <%= link_to "カロリー電卓", users_calorie_dentaku_path(current_user), class: "has-text-dark" %>
+            </h1>
+          </div>
+          <div class="navbar-item">
+            <h1 class="title is-5" style="font-family: cursive;">
+              <%= link_to "レシピ作成",new_users_recipe_path, class: "has-text-dark" %>
+            </h1>
+          </div>
+
+          <div class="navbar-item">
+            <h1 class="title is-5" style="font-family: cursive;">
+              <%= link_to "ログアウト",destroy_user_session_path, method: :delete, class: "has-text-dark" %>
             </h1>
           </div>
         <% else %>
