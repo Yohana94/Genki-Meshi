@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     #   get 'ingredients/new'
     #   get 'ingredients/create'
     #   get 'ingredients/index'
-    resources :users, only: [:index]
+    resources :users, only: [:index, :show, :edit, :update]
     #   get 'users/index'
     #   get 'users/show'
     #   get 'users/edit'

@@ -72,19 +72,13 @@
 
           <div class="navbar-item">
             <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "プロフィール", admins_users_path, method: :get, class: "has-text-dark" %>
+              <%= link_to "プロフィール", users_user_path(current_user), method: :get, class: "has-text-dark" %>
             </h1>
           </div>
 
           <div class="navbar-item">
             <h1 class="title is-5" style="font-family: cursive;">
               <%= link_to "レシピ一覧", users_recipes_path, class: "has-text-dark" %>
-            </h1>
-          </div>
-
-          <div class="navbar-item">
-            <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "アバウト", users_recipes_path, class: "has-text-dark" %>
             </h1>
           </div>
 

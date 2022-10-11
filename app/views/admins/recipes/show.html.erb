@@ -22,20 +22,20 @@
           <div class="tile is-parent">
             <article class="tile is-child box">
               <p class="title">材料</p>
-              <p class="subtitle">Subtitle</p>
+              <p class="subtitle"><%= @recipe.ingredient.ingredient_name %></p>
             </article>
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
               <p class="title">情報 栄養</p>
-              <p class="subtitle">Subtitle</p>
+              <p class="subtitle"><%= @recipe.nutrition %></p>
             </article>
           </div>
         </div>
         <div class="tile is-parent">
           <article class="tile is-child box">
             <p class="title">作り方</p>
-            <p class="subtitle"></p>
+            <p class="subtitle">><%= @recipe.body %></p>
           </article>
         </div>
       </div>
