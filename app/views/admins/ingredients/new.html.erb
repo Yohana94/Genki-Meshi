@@ -8,7 +8,7 @@
           <h1 class="title has-text-centered has-text-link">材料作成</h1>
         </div></br>
 
-<%= form_with model: @ingredient, url: admins_ingredients_path, method: :post do |f| %>
+<%= form_for @ingredients, url: {action: "create"} do |f| %>
 <div class="field is-horizontal">
   <div class="field-label is-normal">
     <label class="label has-text-info">材料画像</label>
@@ -58,7 +58,7 @@
     <div class="field">
       <div class="control">
         <div class="action">
-          <%= f.submit '投稿', class: "button is-success" %>
+          <%= submit_tag '投稿', class: "button is-success" %>
         </div>
       </div>
     </div>

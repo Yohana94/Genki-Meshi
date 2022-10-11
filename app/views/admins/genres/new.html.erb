@@ -42,7 +42,6 @@
       <tr>
       <th>ジャンル</th>
       <th></th>
-      <th></th>
       </tr>
       </thead>
 
@@ -54,7 +53,6 @@
         <%= genre.genre_name %>
       </th>
       <th><%= link_to "編集", edit_admins_recipe_path(genre.id), class:"button has-text-warning-light has-background-info-dark"%></th>
-      <th><%#= link_to "削除", admins_recipes_path, method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
       </tr>
       <% end %>
       </tfoot>
