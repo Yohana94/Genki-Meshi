@@ -4,28 +4,28 @@
     <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
       <div class="container">
-        <h1 class="title has-text-centered has-text-link">レシピ一覧</h1>
+        <h1 class="title has-text-centered has-text-link">カロリー計算</h1>
       </div></br>
 
      <table class="table table is-bordered">
      <thead class="has-background-primary-light">
       <tr>
-      <th>レシピid</th>
-      <th>レシピ名</th>
-      <th>ジャンル</th>
-      <th></th>
+      <th>材料名</th>
+      <th>カロリー</th>
+      <th>数量</th>
+      <th>総カロリー</th>
       <th></th>
       </tr>
       </thead>
 
       <tfoot>
-      <% @recipes.each do |recipe| %>
+      <% @ingredients.each do |ingredient| %>
       <tr>
-      <th><%= recipe.id %></th>
-      <th><%= recipe.recipe_name %></th>
-      <th><%= recipe.genre.genre_name %></th>
-      <th><%= link_to "詳細", admins_recipe_path(recipe.id), class:"button is-warning"%></th>
-      <th><%#= link_to "削除", admins_recipe_path(@recipe), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+      <th><%= ingredient.name %></th>
+      <th><%= ingredient.calorie %></th>
+      <th><%= ingredient.amount %></th>
+      <th><%= ingredient.amount %></th>
+      <th><%= link_to "削除", admins_recipe_path(@recipe), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
       </tr>
       <% end %>
       </tfoot>
