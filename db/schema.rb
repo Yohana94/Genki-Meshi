@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_12_003551) do
+ActiveRecord::Schema.define(version: 2022_10_12_134439) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2022_10_12_003551) do
     t.integer "ingredient_id"
     t.string "nutrition"
     t.string "ingredient_name"
+    t.string "composition"
   end
 
   create_table "users", force: :cascade do |t|

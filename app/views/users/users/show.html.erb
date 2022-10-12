@@ -16,30 +16,30 @@
         <thead>
           <tr>
           <th><abbr title="Position">名前</abbr></th>
-          <th><%#= @user.name %></th>
+          <th><%= @user.name %></th>
           </tr>
         </thead>
         <tfoot>
         <tr>
           <th><abbr title="Position">お誕生日</abbr></th>
-          <th><%#= @user.birthday %></th>
+          <th><%= @user.birthday %></th>
         </tr>
         <tr>
           <th><abbr title="Position">メールアドレス</abbr></th>
-          <th><%#= @user.email %></th>
+          <th><%= @user.email %></th>
         </tr>
         </tfoot>
       </table></br></br>
       <nav class="level">
         <div class="columns">
-          <div class="column box has-background-info-dark has-text-link-light m-4">
-            <%#= link_to "マイメモ", users_my_memo_path(@user.id)%>
+          <div>
+            <%= link_to "マイメモ", users_my_memo_path(@user.id), class:"column box has-background-info-dark has-text-link-light m-4"%>
           </div>
-          <div class="column box has-background-info-dark has-text-link-light m-4">
-            <%#= link_to "作成したレシピ", users_my_memo_path(@user.id)%>
+          <div>
+            <%= link_to "作成したレシピ", users_my_memo_path(@user.id), class:"column box has-background-info-dark has-text-link-light m-4"%>
           </div>
-          <div class="column box has-background-info-dark has-text-link-light m-4">
-            <%#= link_to "編集する", users_my_memo_path(@user.id)%>
+          <div>
+            <%= link_to "編集する", users_my_memo_path(@user.id), class:"column box has-background-info-dark has-text-link-light m-4"%>
           </div>
         </div>
       </nav>

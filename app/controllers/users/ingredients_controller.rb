@@ -1,7 +1,5 @@
 class Users::IngredientsController < ApplicationController
-  def create
-  end
-
-  def new
+  def index
+    @ingredients = Ingredient.all
   end
 end

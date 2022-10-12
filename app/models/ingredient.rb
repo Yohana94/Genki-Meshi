@@ -1,4 +1,4 @@
 class Ingredient < ApplicationRecord
   has_one_attached :image
-  belongs_to :recipe
+  has_many :recipes
 end

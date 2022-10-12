@@ -10,6 +10,7 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.integer :ingredient_id
       t.string :nutrition
       t.string :ingredient_name
+      t.string  :composition
     end
   end
 end

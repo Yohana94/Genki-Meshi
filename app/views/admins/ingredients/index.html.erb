@@ -20,9 +20,10 @@
       <tfoot>
       <% @ingredients.each do |ingredient| %>
       <tr>
-      <th><%= image_tag @ingredient.image %></th>
-      <th><%= ingredient.name %></th>
+      <th><%= image_tag ingredient.image %></th>
+      <th><%= ingredient.ingredient_name %></th>
       <th><%= ingredient.calorie %></th>
+      <th><%= link_to "削除", admins_recipe_path(recipe.id), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
       </tr>
       <% end %>
       </tfoot>

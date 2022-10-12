@@ -63,9 +63,9 @@ namespace :users do
   end
     # get 'homes/top'
     # get 'homes/about'
-  resources :ingredients, only: [:index]
-    # get 'ingredients/create'
-    # get 'ingredients/new'
+  resources :ingredients, only: [:index] do
+  delete 'sessions/destroy'
+  end
     resources :my_memo, only: [:show]
     resources :recipes, only: [:create, :new, :index, :show] do
       collection do

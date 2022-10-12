@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
   has_one_attached :image
   belongs_to :admin, optional: true
   belongs_to :user, optional: true
-  has_many :ingredients
+  belongs_to :ingredient
   belongs_to :genre
 
   def self.search(search)

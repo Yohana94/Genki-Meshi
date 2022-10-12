@@ -4,8 +4,8 @@ class Admins::IngredientsController < ApplicationController
   end
 
   def create
-    @ingredients = current_admin.ingredients.new(ingredient_params)
-    if @ingredients.save
+    @ingredient = Ingredient.new(ingredient_params)
+    if @ingredient.save!
       redirect_to admins_ingredients_path
     else
       render :new
