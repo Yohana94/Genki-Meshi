@@ -1,35 +1,35 @@
+
 <section class="section">
   <div class="container">
+    <%= form_with model: @ingredient, url:'/users/ingredients' do |f| %>
     <div class="columns is-multiline">
-        <div class="column is-4">
-            <div class="card-content">
-              <div class="tile is-parent">
-                <article class="tile is-child notification is-info">
-                    <% @ingredients.each do |ingredient| %>
-                  <h2 class="has-text-centered"><%= ingredient.ingredient_name %></h2></br>
-                 <div class="columns">
-                  <div class="column">
-                    <p class="has-text-centered">
-                      <%= form_with model: @ingredient, url:'/users/ingredients' do |f| %>
-                      <%= f.select :amount, (1..20).map {|n| [n, n]} %>
-                      <% end %>
-                    </p>
-                  </div>
-                  <div class="column">
-                    <p>3000</p>
-                  </div>
-                </div>
-                <figure class="image">
-                    <%= image_tag ingredient.image, size: "64x64" %>
-                </figure>
-                </article>
-              </div>
+      <% @ingredients.each do |ingredient| %>
+        <div class="column is-3">
+          <div class="card notification is-info">
+            <h2 class="has-text-centered"><%= ingredient.ingredient_name %></h2></br>
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <%= image_tag ingredient.image, size: "64x64" %>
+              </figure>
             </div>
-              
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <h2><%= form_with model: @ingredient, url:'/users/ingredients' do |f| %>
+                      <%= f.select :amount, (1..20).map {|n| [n, n]} %>
+                      <% end %></h2>
+                </div>
+                <div class="media-content">
+                  <div class="titzale"><%= ingredient.calorie %> kal</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
       <% end %>
     </div>
   </div>
+    <div class="container m-4 p-4 has-text-centered"><%= f.submit "カロリー計算" %></div>
+    <% end %>
 </section>

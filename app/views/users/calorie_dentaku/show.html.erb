@@ -28,9 +28,8 @@
           <%= (ingredient.calorie * 1.1).floor * ingredient.amount %>
           <% @トタルカロリー +=  (ingredient.calorie * 1.1).floor * ingredient.amount %>
           <% end %></th>
-      <th><%= link_to "削除", admins_recipe_path(@recipe), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+      <th><%= link_to "削除", users_my_memo_path(@my_memo), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
       </tr>
-      <% end %>
       </tfoot>
       </table>
 

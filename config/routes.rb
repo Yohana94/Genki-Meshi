@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
 
-    resources :ingredients, only: [:new, :create, :index]
+    resources :ingredients, only: [:new, :create, :index, :destroy]
     #   get 'ingredients/new'
     #   get 'ingredients/create'
     #   get 'ingredients/index'
@@ -63,10 +63,8 @@ namespace :users do
   end
     # get 'homes/top'
     # get 'homes/about'
-  resources :ingredients, only: [:index] do
-  delete 'sessions/destroy'
-  end
-    resources :my_memo, only: [:show]
+  resources :ingredients, only: [:index]
+    resources :my_memo, only: [:show, :destroy]
     resources :recipes, only: [:create, :new, :index, :show] do
       collection do
         get :search

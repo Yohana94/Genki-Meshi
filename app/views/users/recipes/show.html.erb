@@ -7,12 +7,10 @@
       <div class="tile is-parent">
         <article class="tile is-child notification is-info">
           <p class="title has-text-centered"><%= @recipe.recipe_name %></p>
-          <figure class="image is-4by3 m-4">
+          <figure class="image is-3by4">
             <%= image_tag @recipe.image %>
           </figure>
-          <nav class="has-text-centered">
-            <%= link_to "編集", edit_admins_recipe_path(@recipe), class: "button is-warning" %>
-          </nav>
+
         </article>
       </div>
 
@@ -21,7 +19,7 @@
           <div class="tile is-parent">
             <article class="tile is-child box">
               <p class="title">材料</p>
-              <p class="subtitle"><%= @recipe.composition %></p>
+              <h4><%= @recipe.composition %></h4>
             </article>
           </div>
           <div class="tile is-parent">
