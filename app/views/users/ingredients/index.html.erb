@@ -1,9 +1,11 @@
 
 <section class="section">
   <div class="container">
-    <%= form_with model: @ingredient, url:'/users/ingredients' do |f| %>
+    <%= form_with  url: users_calorie_dentakus_path, method: :get do |f| %>
+
     <div class="columns is-multiline">
-      <% @ingredients.each do |ingredient| %>
+      <% @ingredients.each_with_index do |ingredient, index| %>
+
         <div class="column is-3">
           <div class="card notification is-info">
             <h2 class="has-text-centered"><%= ingredient.ingredient_name %></h2></br>
@@ -15,9 +17,10 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
-                  <h2><%= form_with model: @ingredient, url:'/users/ingredients' do |f| %>
-                      <%= f.select :amount, (1..20).map {|n| [n, n]} %>
-                      <% end %></h2>
+                  <h2>
+                      <%= f.select "amount-#{ingredient.id}", (0..20).map {|n| [n, {hoge: "hoge"}]},{},{class: "amount", id: "#{ingredient.id}"} %>
+                      <%#= f.hidden_field :id, {value: nil, id: "id-#{ingredient.id}"}  %>
+                      </h2>
                 </div>
                 <div class="media-content">
                   <div class="titzale"><%= ingredient.calorie %> kal</div>
@@ -33,3 +36,27 @@
     <div class="container m-4 p-4 has-text-centered"><%= f.submit "カロリー計算" %></div>
     <% end %>
 </section>
+
+
+
+
+
+      <script>
+
+$('.amount').change(function() {
+ 
+ 
+  var classname = $(this).attr("id")
+  
+   var amount =  $(`#${classname}`).val(); 
+   var id = `#id-${classname}`;
+  
+   $(id).val(amount)
+   
+   
+   // console.log(val); // 出力：ABC
+    // 選択されている表示文字列を取り出す
+   // var txt = $('[name=alphabet] option:selected').text();
+   // console.log(txt); // 出力：えーびーしー
+});
+</script>

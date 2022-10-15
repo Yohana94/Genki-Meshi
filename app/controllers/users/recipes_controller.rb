@@ -6,7 +6,7 @@ class Users::RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
-      redirect_to admins_homes_top_path
+      redirect_to users_user_path
     else
       render :new
     end

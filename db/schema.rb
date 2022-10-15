@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_12_134439) do
+ActiveRecord::Schema.define(version: 2022_10_15_104504) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,11 @@ ActiveRecord::Schema.define(version: 2022_10_12_134439) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "genre_name"
     t.datetime "created_at", precision: 6, null: false
@@ -64,6 +69,8 @@ ActiveRecord::Schema.define(version: 2022_10_12_134439) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "amount"
+    t.integer "recipe_id"
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
   create_table "my_memos", force: :cascade do |t|

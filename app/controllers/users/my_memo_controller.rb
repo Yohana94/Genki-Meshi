@@ -1,6 +1,6 @@
 class Users::MyMemoController < ApplicationController
   def show
-   @ingredient = Ingredient.find(params[:id])
+   @ingredients = Ingredient.all
   end
 
   def destroy

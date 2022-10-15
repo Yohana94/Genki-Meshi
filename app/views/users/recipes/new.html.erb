@@ -8,7 +8,7 @@
           <h1 class="title has-text-centered has-text-link">レシピ新規登録</h1>
         </div></br>
 
-<%= form_with model: @recipe, url:  admins_recipes_path, method: :post do |f| %>
+<%= form_with model: @recipe, url: users_recipes_new_path, method: :post do |f| %>
 <div class="field is-horizontal">
   <div class="field-label is-normal">
     <label class="label has-text-info">レシピ画像</label>
@@ -58,6 +58,19 @@
     <div class="field">
       <div class="control">
         <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label has-text-info">材料</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+         <%= f.text_area :composition %>
+      </div>
     </div>
   </div>
 </div>

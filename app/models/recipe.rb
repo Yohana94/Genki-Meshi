@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
   belongs_to :admin, optional: true
   belongs_to :user, optional: true
   belongs_to :genre
+  has_many :ingredients
 
   def self.search(search)
     if search

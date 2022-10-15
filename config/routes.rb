@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 namespace :users do
 
   resources :users, only: [:show]
-  resources :calorie_dentakus, only: [:show]
+  resources :calorie_dentakus, only: [:index, :destroy]
    # get 'calorie_dentakus/show'
   resources :sessions, only: [:new, :create, :destroy]
     # get 'sessions/new'
@@ -66,11 +66,13 @@ namespace :users do
   resources :ingredients, only: [:index]
     resources :my_memo, only: [:show, :destroy]
     resources :recipes, only: [:create, :new, :index, :show] do
+
       collection do
         get :search
       end
     end
-  end
 
+  end
+  post '/users/recipes/new', to: "users/recipes#new"
   root to: "users/homes#top"
 end
