@@ -21,18 +21,12 @@
 </div>
 
 <div class="container ml-4 p-0">
+  <% Genre.all.each do |genre|  %>
   <div class="box has-background-warning has-text-centered">
-    <%= link_to "高繊維レシピ", users_recipes_path, class: "button is-primary" %>
+    <%= link_to genre.genre_name, users_recipes_path(genre_id: genre.id), class: "button is-primary" %>
   </div>
-  <div class="box has-background-warning has-text-centered">
-    <%= link_to "低ナトリウムレシピ", users_recipes_path, class: "button is-primary" %>
-  </div>
-  <div class="box has-background-warning has-text-centered">
-    <%= link_to "低カロリーレシピ", users_recipes_path, class: "button is-primary" %>
-  </div>
-  <div class="box has-background-warning has-text-centered">
-    <%= link_to "プラントベース", users_recipes_path, class: "button is-primary" %>
-  </div>
+
+  <% end  %>
 </div>
 
 </div>

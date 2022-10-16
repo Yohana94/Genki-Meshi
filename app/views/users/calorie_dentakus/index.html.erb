@@ -4,43 +4,43 @@
       <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
         <div class="container">
-          <h1 class="title has-text-centered has-text-link">カロリー計算</h1>
+          <h1 class="title has-text-centered has-text-link">カロリー計算 </h1>
         </div></br>
 
        <table class="table table is-bordered">
          <thead class="has-background-primary-light">
-          <tr>
-            <th>材料名</th>
-            <th>カロリー</th>
-            <th>数量</th>
-            <th>総カロリー</th>
-            <th></th>
-          </tr>
-        </thead>
+            <tr>
+              <th>材料名</th>
+              <th>カロリー</th>
+              <th>数量</th>
+              <th>総カロリー</th>
+              <th></th>
+            </tr>
+         </thead>
 
         <tfoot>
           <%num = 0 %>
           <% @ingredients.each do |ingredient| %>
+          <% @selected_ingredients.each do |selected_ingredient| %>
           <tr>
-            <% if ingredient.calorie.to_i > 0 %>
+            <% if ingredient.calorie.to_i > 0 && selected_ingredient[:amount].to_i > 0 && ingredient.id == selected_ingredient[:ingredient_id].to_i %>
               <th><%= ingredient.ingredient_name %></th>
               <th><%= ingredient.calorie %></th>
-              <th><%= ingredient[1] %></th>
-              <% total =  (ingredient_instance.calorie.to_i * 1.1).floor * ingredient[1].to_i %>
+              <th><%= selected_ingredient[:amount] %></th>
+              <% total =  (ingredient.calorie.to_i) * selected_ingredient[:amount].to_i%>
               <th><%= total %></th>
               <% num += total%>
               <th><%= link_to "削除", "/users/my_memo/:id", method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
           </tr>
           <% end %>
-
-        </tfoot>
-      </table>
-        <div>total calorie:  <%= num   %></div>
           <% end %>
+        </tfoot>
+    <% end %>
+      </table>
 
+      <div>トタルカロリー　<%= @total %>　</div>
 
       </div>
     </div>
   </div>
-</div>
 </div>

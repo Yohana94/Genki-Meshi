@@ -6,8 +6,15 @@ class Users::CalorieDentakusController < ApplicationController
        arr.push([  key.split("-")[1] , value ])
      end
     end
-    @ingredients = arr
-
+    @ingredients = Ingredient.all
+    @selected_ingredients = params[:ingredients]
+    @total = 0
+    if params[:ingredients].present?
+       params[:ingredients].each do |ingredient|
+       @ingredient = Ingredient.find(ingredient[:ingredient_id])
+       @total += @ingredient.calorie * ingredient[:amount].to_i
+      end
+    end
   end
 
   def destroy
