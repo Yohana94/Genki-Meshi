@@ -1,14 +1,15 @@
   <div class="container m-4 has-text-centered">
     <h2 class="has-background-grey-lighter">
-      プロフィール
+      プロフィール編集
     </h2>
   </div>
 
 <section class="section">
   <article class="media">
+<%= form_with model: @user, url:  users_user_path, method: :post do |f| %>
     <figure class="media-left is-rounded">
       <p class="image is-128x128">
-        <%= image_tag 'ichigo',class:"is-rounded"%>
+        <%= f.file_field :image, accept: "image/*",class:"is-rounded"%>
       </p>
     </figure>
     <div class="media-content">
@@ -16,26 +17,24 @@
         <thead>
           <tr>
           <th><abbr title="Position">名前</abbr></th>
-          <th><%= @user.name %></th>
+          <th> <%= f.text_field :name %></th>
           </tr>
         </thead>
         <tfoot>
         <tr>
           <th><abbr title="Position">メールアドレス</abbr></th>
-          <th><%= @user.email %></th>
+          <th><%= f.text_field :email %></th>
         </tr>
         </tfoot>
       </table></br></br>
       <nav class="level">
         <div class="columns">
-          <div class="column box has-background-info-dark has-text-link-light m-4">
-            <%= link_to "マイメモ", users_my_memo_path(@user.id)%>
-          </div>
-          <div class="column box has-background-info-dark has-text-link-light m-4">
-            <%= link_to "作成したレシピ", users_my_memo_path(@user.id)%>
+          <div>
+            <%= f.submit "保存", class:"button is-link" %>
           </div>
         </div>
       </nav>
     </div>
+    <% end %>
   </article>
 </section>

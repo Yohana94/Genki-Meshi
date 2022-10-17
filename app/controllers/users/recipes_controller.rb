@@ -29,7 +29,14 @@ class Users::RecipesController < ApplicationController
      @recipes = Recipe.search(params[:search])
   end
 
-   def recipe_params
-    params.require(:recipe).permit(:recipe_name, :image, :body, :nutrition, :genre_id, :composition)
+  def destroy
+    recipe = Recipe.find_by_id(params[:id])
+    user = recipe.user
+    recipe.destroy
+    redirect_to users_user_path(user.id), notice: "レシピを削除しました。"
   end
+
+ def recipe_params
+    params.require(:recipe).permit(:recipe_name, :image, :body, :nutrition, :genre_id, :composition)
+ end
 end

@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 
 namespace :users do
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update, :create]
   resources :calorie_dentakus, only: [:index, :destroy]
    # get 'calorie_dentakus/show'
   resources :sessions, only: [:new, :create, :destroy]
@@ -65,7 +65,7 @@ namespace :users do
     # get 'homes/about'
   resources :ingredients, only: [:index]
     resources :my_memo, only: [:show, :destroy]
-    resources :recipes, only: [:create, :new, :index, :show] do
+    resources :recipes, only: [:create, :new, :index, :show, :destroy] do
 
       collection do
         get :search

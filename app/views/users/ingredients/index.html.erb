@@ -42,22 +42,3 @@
 
 
 
-      <script>
-
-$('.amount').change(function() {
-
-
-  var classname = $(this).attr("id")
-
-   var amount =  $(`#${classname}`).val();
-   var id = `#id-${classname}`;
-
-   $(id).val(amount)
-
-
-   // console.log(val); // 出力：ABC
-    // 選択されている表示文字列を取り出す
-   // var txt = $('[name=alphabet] option:selected').text();
-   // console.log(txt); // 出力：えーびーしー
-});
-</script>

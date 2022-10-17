@@ -32,7 +32,7 @@
             <%= link_to "マイメモ", users_my_memo_path(@user.id), class:"column box has-background-info-dark has-text-link-light m-4"%>
           </div>
           <div>
-            <%= link_to "編集する", users_my_memo_path(@user.id), class:"column box has-background-info-dark has-text-link-light m-4"%>
+            <%= link_to "編集する", edit_users_user_path(@user.id), class:"column box has-background-info-dark has-text-link-light m-4"%>
           </div>
         </div>
       </nav>
@@ -42,18 +42,17 @@
 </section>
 
 <section>
+  <% if @recipe.present? %>
   <div class="box m-4">
-<div class="tile is-ancestor">
- <% @recipes.each do |recipe| %>
 <div class="tile is-ancestor">
   <div class="tile is-vertical is-12">
     <div class="tile">
       <div class="tile is-parent">
         <article class="tile is-child notification is-info">
 
-          <p class="title has-text-centered"><%= recipe.recipe_name %></p>
+          <p class="title has-text-centered"><%= @recipe.recipe_name %></p>
           <figure class="image is-3by4">
-            <%= image_tag recipe.image %>
+            <%= image_tag @recipe.image %>
           </figure>
 
         </article>
@@ -64,27 +63,27 @@
           <div class="tile is-parent">
             <article class="tile is-child box">
               <p class="title">材料</p>
-              <h4><%= recipe.composition %></h4>
+              <h4><%= @recipe.composition %></h4>
             </article>
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
               <p class="title">情報 栄養</p>
-              <p class="subtitle"><%= recipe.nutrition %></p>
+              <p class="subtitle"><%= @recipe.nutrition %></p>
             </article>
           </div>
         </div>
         <div class="tile is-parent">
           <article class="tile is-child box">
             <p class="title">作り方</p>
-            <p class="subtitle"><%= recipe.body %></p>
+            <p class="subtitle"><%= @recipe.body %></p>
           </article>
         </div>
       </div>
     </div>
+
+    <div><%= link_to "削除", users_recipe_path(@recipe.id), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></div>
+</div>
 </div>
 <% end %>
-</div>
-</div>
-
 </section>

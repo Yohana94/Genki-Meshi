@@ -29,7 +29,7 @@
                     <%= total %>
                   </th>
                     <% num += total%>
-                  <th><%= link_to "削除", "/users/my_memo/:id", method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+                  <th><%= link_to "削除", users_my_memo_path(), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
                 </tr>
               <%end%>
             <% end %>
