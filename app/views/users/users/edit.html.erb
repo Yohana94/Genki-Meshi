@@ -6,7 +6,7 @@
 
 <section class="section">
   <article class="media">
-<%= form_with model: @user, url:  users_user_path, method: :post do |f| %>
+<%= form_with model: @user, url: users_user_path, method: :patch do |f| %>
     <figure class="media-left is-rounded">
       <p class="image is-128x128">
         <%= f.file_field :image, accept: "image/*",class:"is-rounded"%>

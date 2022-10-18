@@ -44,7 +44,7 @@
 <section>
   <% if @recipe.present? %>
   <div class="box m-4">
-<div class="tile is-ancestor">
+<div class="tile is-ancestor has-background-primary-light">
   <div class="tile is-vertical is-12">
     <div class="tile">
       <div class="tile is-parent">
@@ -82,7 +82,7 @@
       </div>
     </div>
 
-    <div><%= link_to "削除", users_recipe_path(@recipe.id), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></div>
+    <div class="m-4 has-text-centered"><%= link_to "削除", users_recipe_path(@recipe.id), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></div>
 </div>
 </div>
 <% end %>

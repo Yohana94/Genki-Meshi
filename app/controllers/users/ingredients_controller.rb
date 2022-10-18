@@ -4,6 +4,8 @@ class Users::IngredientsController < ApplicationController
     if params[:ingredients].present?
        params[:ingredients].each do |ingredient|
        @ingredient = Ingredient.find(ingredient[:ingredient_id])
+       @ingredient.amount = ingredient[:amount]
+       @ingredient.save
        @total += @ingredient.calorie * ingredient[:amount].to_i
       end
     end

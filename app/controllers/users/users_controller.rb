@@ -13,10 +13,10 @@ class Users::UsersController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
-    if @recipe.update(recipe_params)
-    flash[:notice]="You have updated book successfully."
-    redirect_to users_user_path(@recipe.id)
+      @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice]="You have updated book successfully."
+      redirect_to users_user_path
     else
       render :edit
     end

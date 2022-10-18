@@ -14,6 +14,7 @@
               <th>カロリー</th>
               <th>数量</th>
               <th>総カロリー</th>
+              <th></th>
             </tr>
           </thead>
 
@@ -24,8 +25,10 @@
                 <tr>
                   <th><%= ingredient.ingredient_name %></th>
                   <th><%= ingredient.calorie %></th>
+　　              <th><%= ingredient.amount %></th>
+
                   <th>
-                    <% total =  (ingredient.calorie.to_i * 1.1).floor * ingredient.calorie.to_i %>
+                    <% total =  (ingredient.calorie.to_i * ingredient.amount.to_i)  %>
                     <%= total %>
                   </th>
                     <% num += total%>
