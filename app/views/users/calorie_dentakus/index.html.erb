@@ -21,21 +21,24 @@
         <tfoot>
           <%num = 0 %>
           <% @ingredients.each do |ingredient| %>
-          <% @selected_ingredients.each do |selected_ingredient| %>
-          <tr>
-            <% if ingredient.calorie.to_i > 0 && selected_ingredient[:amount].to_i > 0 && ingredient.id == selected_ingredient[:ingredient_id].to_i %>
-              <th><%= ingredient.ingredient_name %></th>
-              <th><%= ingredient.calorie %></th>
-              <th><%= selected_ingredient[:amount] %></th>
-              <% total =  (ingredient.calorie.to_i) * selected_ingredient[:amount].to_i%>
-              <th><%= total %></th>
-              <% num += total%>
-              <th><%= link_to "削除", "/users/my_memo/:id", method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
-          </tr>
-          <% end %>
-          <% end %>
+          <%#binding.pry%>
+            <% @selected_ingredients.each do |selected_ingredient| %>
+              <tr>
+                 
+                <% if ingredient.calorie.to_i > 0 && selected_ingredient[:amount].to_i > 0 && ingredient.id == selected_ingredient[:ingredient_id].to_i %>
+                  <th><%= ingredient.ingredient_name %></th>
+                  <th><%= ingredient.calorie %></th>
+                  <th><%= selected_ingredient[:amount] %></th>
+                  <% total =  (ingredient.calorie.to_i) * selected_ingredient[:amount].to_i%>
+                  <th><%= total %></th>
+                  <% num += total%>
+                  <th><%= link_to "削除", users_my_memo_path(ingredient.id), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+                <% end %>
+              </tr>
+            <% end %>
+
+        <% end %>
         </tfoot>
-    <% end %>
       </table>
 
       <div>トタルカロリー　<%= @total %>　</div>

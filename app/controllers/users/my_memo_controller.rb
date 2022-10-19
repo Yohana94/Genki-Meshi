@@ -1,12 +1,16 @@
 class Users::MyMemoController < ApplicationController
   def show
+    # binding.pry
    @ingredients = Ingredient.all
   end
 
   def destroy
-    ingredient = Ingredient.find_by_id(params[:id])
-    ingredient.destroy
-    redirect_to users_my_memo_path, notice: "レシピを削除しました。"
+    # binding.pry
+    ingredient = Ingredient.find(params[:id])
+    # ingredient.destroy
+    #ingredient.amount = 0
+     ingredient.update(amount: 0)
+    redirect_to users_my_memo_path(current_user.id), notice: "レシピを削除しました。"
   end
 
   def ingredient_params
