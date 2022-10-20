@@ -1,7 +1,11 @@
 class Users::UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    @recipe = @user.recipes.last
+    if params[:id].to_i == current_user.id
+      @user = User.find(params[:id])
+      @recipe = @user.recipes.last
+    else
+      redirect_to root_path
+    end
   end
 
   def index

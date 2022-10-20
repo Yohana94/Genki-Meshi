@@ -24,6 +24,10 @@
           <th><abbr title="Position">メールアドレス</abbr></th>
           <th><%= @user.email %></th>
         </tr>
+        <tr>
+          <th><abbr title="Position">誕生日</abbr></th>
+          <th><%= @user.birthday.strftime('%Y-%m-%d') %></th>
+        </tr>
         </tfoot>
       </table></br></br>
       <nav class="level">

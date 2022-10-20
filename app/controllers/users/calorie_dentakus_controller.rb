@@ -22,15 +22,19 @@ class Users::CalorieDentakusController < ApplicationController
        params[:ingredients].each do |ingredient|
          @ingredient = Ingredient.find(ingredient[:ingredient_id])
          @ingredient.update(amount: ingredient[:amount].to_i)
+         mymemo = current_user.mymemos.new
+         mymemo.mymemos_ingredients.new(ingredient_id: @ingredient.id).save
          @total += @ingredient.calorie * ingredient[:amount].to_i
       end
     end
+
+
   end
 
   def destroy
     ingredient = Ingredient.find_by_id(params[:id])
     ingredient.destroy
-    redirect_to users_my_memo_path, notice: "レシピを削除しました。"
+    redirect_to users_calorie_dentakus_path, notice: "レシピを削除しました。"
   end
 
   private

@@ -24,7 +24,7 @@
           <%#binding.pry%>
             <% @selected_ingredients.each do |selected_ingredient| %>
               <tr>
-                 
+
                 <% if ingredient.calorie.to_i > 0 && selected_ingredient[:amount].to_i > 0 && ingredient.id == selected_ingredient[:ingredient_id].to_i %>
                   <th><%= ingredient.ingredient_name %></th>
                   <th><%= ingredient.calorie %></th>
@@ -44,7 +44,11 @@
       <div>トタルカロリー　<%= @total %>　</div>
 
     <div class="box has-background-warning has-text-centered">
-      <%#= link_to "メモにしましょう", users_my_memo_path(@my_memo.id), class: "button has-background-warning-dark" %>
+    <% if user_signed_in? %>
+        <%= form_with model: @ingredient, url: users_my_memo_path(current_user.id), method: :get do |f| %>
+        <%= f.submit "メモにしましょう", class: "button has-background-warning-dark" %>
+      <% end %>
+    <% end %>
     </div>
 
       </div>
