@@ -13,7 +13,7 @@ class Users::CalorieDentakusController < ApplicationController
      arr.push(item[:amount].to_i * ingredient.calorie)
     end
 
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.page(params[:page]).per(6)
     @selected_ingredients = params[:ingredients]
     @total = 0
     # binding.irb

@@ -20,9 +20,9 @@
             </div>
             <div class="column columns is-vcentered">
               <div>
-                <%= form_tag(search_users_recipes_path,:method => 'get') do %>
-                  <%= text_field_tag :search %>
-                  <%= submit_tag 'レシピ検索', :name => nil %>
+                <%= form_with url: users_recipes_path, method: :get, local: true do |f| %>
+                 <%= f.text_field :search, placeholder: "材料から検索。。。", value: params[:search] %>
+                 <%= f.submit 'レシピ検索' %>
                 <% end %>
               </div>
             </div>
@@ -47,21 +47,19 @@
               <%= link_to "材料一覧", admins_ingredients_path, class: "has-text-dark" %>
             </h1>
           </div>
-          <div class="navbar-item">
-            <h1 class="title is-5" style="font-family: cursive;">
-              <%= link_to "会員一覧",admins_users_path, class: "has-text-dark" %>
-            </h1>
-          </div>
+
           <div class="navbar-item">
             <h1 class="title is-5" style="font-family: cursive;">
               <%= link_to "作成履歴一覧",admins_recipes_path, class: "has-text-dark" %>
             </h1>
           </div>
+
           <div class="navbar-item">
             <h1 class="title is-5" style="font-family: cursive;">
               <%= link_to "ジャンル一覧",new_admins_genre_path, class: "has-text-dark" %>
             </h1>
           </div>
+
           <div class="navbar-item">
             <h1 class="title is-5" style="font-family: cursive;">
               <%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: "has-text-dark" %>
@@ -112,7 +110,7 @@
                   </h1>
                 </div>
 
-                 <div class="navbar-item">
+                <div class="navbar-item">
                   <h1 class="title is-5" style="font-family: cursive;">
                     <%= link_to "材料一覧",users_ingredients_path, class: "has-text-dark" %>
                   </h1>

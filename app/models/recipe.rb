@@ -5,9 +5,12 @@ class Recipe < ApplicationRecord
   belongs_to :genre
   has_many :ingredients
 
-  def self.search(search)
-    if search
-      Recipe.where(["name LIKE ?","%#{search}%"])
+  paginates_per 8
+
+  def self.searchby(search_term)
+    if search_term.present?
+      where("LOWER(recipe_name) LIKE :search_term",
+      search_term: "%#{search_term.downcase}%")
     else
       Recipe.all
     end

@@ -13,7 +13,7 @@ class Admins::IngredientsController < ApplicationController
   end
 
   def index
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.page(params[:ingredient_name]).per(8)
   end
 
   def destroy

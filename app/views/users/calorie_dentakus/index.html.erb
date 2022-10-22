@@ -20,36 +20,33 @@
 
         <tfoot>
           <%num = 0 %>
-          <% @ingredients.each do |ingredient| %>
-          <%#binding.pry%>
+          <%# @ingredients.each do |ingredient| %>
             <% @selected_ingredients.each do |selected_ingredient| %>
               <tr>
 
-                <% if ingredient.calorie.to_i > 0 && selected_ingredient[:amount].to_i > 0 && ingredient.id == selected_ingredient[:ingredient_id].to_i %>
-                  <th><%= ingredient.ingredient_name %></th>
-                  <th><%= ingredient.calorie %></th>
+                <% if selected_ingredient[:amount].to_i > 0  %>
+                  <th><%= Ingredient.find(selected_ingredient[:ingredient_id]).ingredient_name %></th>
+                  <th><%= selected_ingredient[:calorie] %></th>
                   <th><%= selected_ingredient[:amount] %></th>
-                  <% total =  (ingredient.calorie.to_i) * selected_ingredient[:amount].to_i%>
+                  <% total =  (selected_ingredient[:calorie].to_i) * selected_ingredient[:amount].to_i%>
                   <th><%= total %></th>
                   <% num += total%>
-                  <th><%= link_to "削除", users_my_memo_path(ingredient.id), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+                  <th><%= link_to "削除", users_my_memo_path(selected_ingredient[:ingredient_id]), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
                 <% end %>
               </tr>
             <% end %>
 
-        <% end %>
+        <%# end %>
         </tfoot>
       </table>
 
-      <div>トタルカロリー　<%= @total %>　</div>
+      <div class="container">トタルカロリー　<%= @total %></div></br>
 
-    <div class="box has-background-warning has-text-centered">
     <% if user_signed_in? %>
         <%= form_with model: @ingredient, url: users_my_memo_path(current_user.id), method: :get do |f| %>
-        <%= f.submit "メモにしましょう", class: "button has-background-warning-dark" %>
+        <%= f.submit "メモにしましょう", class: "button has-background-primary has-text-warning-light" %>
       <% end %>
     <% end %>
-    </div>
 
       </div>
     </div>
