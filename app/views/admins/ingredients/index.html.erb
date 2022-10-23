@@ -32,9 +32,12 @@
             </table>
 
         </div>
-
-        <div class="box"><%= paginate @ingredients %></div>
-
+        <div class="row">
+          <div style="position:relative; width:33.3333%; padding-right: 15px; padding-left:15px; margin-left: 33.3333%;">
+          <!--div class="col-3 offset-3"-->
+           <%= paginate @ingredients %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <div class="box">
 <div class="tile is-ancestor">
 
-<%= form_with model: @recipe, url:  admins_recipes_path, method: :post do |f| %>
+<%= form_with model: @recipe, url:  admins_recipe_path(@recipe), method: :patch do |f| %>
 <div class="tile is-ancestor">
   <div class="tile is-vertical is-12">
     <div class="tile">

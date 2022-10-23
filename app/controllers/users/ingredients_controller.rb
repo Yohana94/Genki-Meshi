@@ -10,6 +10,6 @@ class Users::IngredientsController < ApplicationController
       end
     end
 
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.page(params[:page]).per(8)
   end
 end

@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
 
   paginates_per 8
 
-  def self.searchby(search_term)
+  def self.search_by(search_term)
     if search_term.present?
       where("LOWER(recipe_name) LIKE :search_term",
       search_term: "%#{search_term.downcase}%")

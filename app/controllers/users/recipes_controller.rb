@@ -2,14 +2,12 @@ class Users::RecipesController < ApplicationController
   def index
      if params[:genre_id].present?
        genre = Genre.find(params[:genre_id])
-       @recipes = genre.recipes.page(params[:page]).per(6)
+       @recipes = genre.recipes
      else
        @recipes = Recipe.where.not(admin_id: nil)
-       @recipes = @recipes.page(params[:page]).per(6)
      end
      if params[:search].present?
-       @recipes = Recipe.searchby(params[:search])
-       @recipes = @recipes.page(params[:page]).per(6)
+       @recipes = Recipe.search_by(params[:search])
      end
   end
 
