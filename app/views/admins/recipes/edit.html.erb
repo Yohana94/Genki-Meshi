@@ -7,12 +7,14 @@
     <div class="tile">
       <div class="tile is-parent">
         <article class="tile is-child notification is-info">
-          <p class="title has-text-centered"> <%= f.text_field :recipe_name %></p>
+          <p class="title has-text-centered">
+            <%= f.text_field :recipe_name %>
+          </p>
           <figure class="image is-4by3 m-4">
             <%= f.file_field :image, accept: "image/*" %>
           </figure>
           <div class="has-text-centered">
-            <%= link_to "保存", "/admins/recipes/:id", class:"button is-warning" %>
+            <%= f.submit "保存", class:"button is-warning" %>
           </div>
         </article>
       </div>

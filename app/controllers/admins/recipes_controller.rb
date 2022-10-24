@@ -18,9 +18,10 @@ class Admins::RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
+
     if @recipe.update(recipe_params)
-    flash[:notice]="You have updated book successfully."
-    redirect_to admins_recipe_path(@recipe.id)
+      flash[:notice]="You have updated book successfully."
+      redirect_to admins_recipe_path(@recipe.id)
     else
       render :edit
     end
@@ -32,7 +33,10 @@ class Admins::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    #@recipe.update(recipe_params)
+    #redirect_to "/admins/recipes"
   end
+
 
   def destroy
     recipe = Recipe.find_by_id(params[:id])

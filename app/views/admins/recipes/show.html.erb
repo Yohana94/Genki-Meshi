@@ -12,7 +12,7 @@
           </figure>
           <nav class="has-text-centered">
             <%= link_to "編集", edit_admins_recipe_path(@recipe), class: "button is-warning" %>
-            <%= link_to "削除", "/admins/recipes/:id", method: :delete, class:"button is-danger" %>
+            <%= link_to "削除", admins_recipe_path(@recipe), method: :delete, class:"button is-danger" %>
           </nav>
         </article>
       </div>
