@@ -105,9 +105,9 @@ ActiveRecord::Schema.define(version: 2022_10_20_124102) do
     t.text "body"
     t.integer "admin_id"
     t.integer "ingredient_id"
-    t.string "nutrition"
+    t.text "nutrition"
     t.string "ingredient_name"
-    t.string "composition"
+    t.text "composition"
   end
 
   create_table "users", force: :cascade do |t|

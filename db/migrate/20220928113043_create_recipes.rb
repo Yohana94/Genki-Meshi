@@ -8,9 +8,9 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.text :body
       t.integer :admin_id
       t.integer :ingredient_id
-      t.string :nutrition
+      t.text :nutrition
       t.string :ingredient_name
-      t.string  :composition
+      t.text  :composition
     end
   end
 end
