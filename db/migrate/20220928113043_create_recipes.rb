@@ -5,7 +5,7 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.integer :genre_id
       t.integer :user_id
       t.string :recipe_name
-      t.string :body
+      t.text :body
       t.integer :admin_id
       t.integer :ingredient_id
       t.string :nutrition
