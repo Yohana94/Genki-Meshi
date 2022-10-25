@@ -20,7 +20,7 @@ class Admins::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
 
     if @recipe.update(recipe_params)
-      flash[:notice]="You have updated book successfully."
+      flash[:notice]="You have updated recipe successfully."
       redirect_to admins_recipe_path(@recipe.id)
     else
       render :edit
@@ -33,10 +33,7 @@ class Admins::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    #@recipe.update(recipe_params)
-    #redirect_to "/admins/recipes"
   end
-
 
   def destroy
     recipe = Recipe.find_by_id(params[:id])
