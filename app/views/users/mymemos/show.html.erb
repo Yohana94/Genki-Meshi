@@ -20,7 +20,7 @@
 
           <tfoot>
             <% @mymemo.mymemos_ingredients.each do |mymemos_ingredient| %>
-              <% if mymemos_ingredient.total_calorie > 0 %>
+              <% if mymemos_ingredient.total_calorie >= 0 %>
                 <tr>
                   <th><%= mymemos_ingredient.ingredient.ingredient_name %></th>
                   <th><%= mymemos_ingredient.ingredient.calorie %></th>
@@ -35,7 +35,7 @@
             <% end %>
           </tfoot>
         </table>
-        <div>total calorie:  <%= @mymemo.total_calorie %></div>
+        <div>トタルカロリー <%= @mymemo.total_calorie %></div>
       </div>
     </div>
   </div>
