@@ -21,7 +21,7 @@ class Users::MymemosController < ApplicationController
     ingredient = Ingredient.find(params[:id])
     # ingredient.destroy
     ingredient.update(amount: 0)
-    redirect_to users_mymemos_path, notice: "メモを削除しました。"
+    redirect_to users_mymemo_path, notice: "メモを削除しました。"
   end
 
   def ingredient_params
