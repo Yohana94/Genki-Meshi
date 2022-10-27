@@ -31,7 +31,7 @@
                   <% total =  (selected_ingredient[:calorie].to_i) * selected_ingredient[:amount].to_i%>
                   <th><%= total %></th>
                   <% num += total%>
-                  <th><%= link_to "削除", users_my_memo_path(selected_ingredient[:ingredient_id]), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+                  <th><%= link_to "削除", users_mymemo_path(selected_ingredient[:ingredient_id]), method: :delete,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
                 <% end %>
               </tr>
             <% end %>
@@ -43,7 +43,10 @@
       <div class="container">トタルカロリー　<%= @total %></div></br>
 
     <% if user_signed_in? %>
-        <%= form_with model: @ingredient, url: users_my_memo_path(current_user.id), method: :get do |f| %>
+        <%= form_with url: users_mymemos_path, method: :post do |f| %>
+        <% @resources.each do |resource| %>
+          <%= hidden_field_tag 'ingredient[]', [resource[:id], resource[:amount] ] %>
+        <% end %>
         <%= f.submit "メモにしましょう", class: "button has-background-primary has-text-warning-light" %>
       <% end %>
     <% end %>

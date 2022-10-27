@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_20_124102) do
+ActiveRecord::Schema.define(version: 2022_10_27_131056) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -68,23 +68,14 @@ ActiveRecord::Schema.define(version: 2022_10_20_124102) do
     t.string "ingredient_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "amount"
     t.integer "recipe_id"
     t.integer "mymemo_id"
     t.index ["mymemo_id"], name: "index_ingredients_on_mymemo_id"
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
-  create_table "my_memos", force: :cascade do |t|
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "mymemos", force: :cascade do |t|
-    t.integer "ingredient_id"
     t.integer "user_id"
-    t.integer "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -94,6 +85,7 @@ ActiveRecord::Schema.define(version: 2022_10_20_124102) do
     t.integer "ingredient_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "amount"
   end
 
   create_table "recipes", force: :cascade do |t|

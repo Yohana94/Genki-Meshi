@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -46,32 +45,32 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
 
-namespace :users do
+  namespace :users do
 
-  resources :users, only: [:show, :edit, :update, :create]
-  resources :calorie_dentakus, only: [:index, :destroy]
-   # get 'calorie_dentakus/show'
-  resources :sessions, only: [:new, :create, :destroy]
-    # get 'sessions/new'
-    # post 'sessions/create'
-    # delete 'sessions/destroy'
-  resources :homes, only: [] do
-    collection do
-      get :top
-      get :about
+    resources :users, only: [:show, :edit, :update, :create]
+    resources :calorie_dentakus, only: [:index, :destroy]
+     # get 'calorie_dentakus/show'
+    resources :sessions, only: [:new, :create, :destroy]
+      # get 'sessions/new'
+      # post 'sessions/create'
+      # delete 'sessions/destroy'
+    resources :homes, only: [] do
+      collection do
+        get :top
+        get :about
+      end
     end
-  end
     # get 'homes/top'
     # get 'homes/about'
-  resources :ingredients, only: [:index]
-    resources :my_memo, only: [:show, :destroy]
+    resources :mymemos_ingredients, only: [:destroy]
+    resources :ingredients, only: [:index]
+    resources :mymemos, only: [:show, :destroy, :create]
     resources :recipes, only: [:create, :new, :index, :show, :destroy] do
 
       collection do
         get :search
       end
     end
-
   end
   post '/users/recipes/new', to: "users/recipes#new"
   root to: "users/homes#top"

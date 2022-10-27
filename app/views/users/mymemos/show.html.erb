@@ -1,0 +1,42 @@
+<div class="box">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+
+        <div class="container">
+          <h1 class="title has-text-centered has-text-link">マイメモ</h1>
+        </div></br>
+
+       <table class="table table is-bordered">
+         <thead class="has-background-primary-light">
+            <tr>
+              <th>材料名</th>
+              <th>カロリー</th>
+              <th>数量</th>
+              <th>総カロリー</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tfoot>
+            <% @mymemo.mymemos_ingredients.each do |mymemos_ingredient| %>
+              <% if mymemos_ingredient.total_calorie > 0 %>
+                <tr>
+                  <th><%= mymemos_ingredient.ingredient.ingredient_name %></th>
+                  <th><%= mymemos_ingredient.ingredient.calorie %></th>
+　　              <th><%= mymemos_ingredient.amount %></th>
+
+                  <th>
+                    <%= mymemos_ingredient.total_calorie %>
+                  </th>
+                  <th><%= link_to "削除", users_mymemos_ingredient_path(mymemos_ingredient), method: :delete, class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
+                </tr>
+              <%end%>
+            <% end %>
+          </tfoot>
+        </table>
+        <div>total calorie:  <%= @mymemo.total_calorie %></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
    has_many :recipes
    has_many :mymemos
+   has_many :mymemos_ingredients, through: :mymemos
    belongs_to :admin, optional: true
 end
