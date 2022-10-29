@@ -1,6 +1,6 @@
 class Users::MymemosController < ApplicationController
   def show
-    @mymemo = current_user.mymemos.find(params[:id])
+    @mymemo = current_user.mymemos.find_by_id(params[:id])
   end
 
  def create
@@ -25,6 +25,6 @@ class Users::MymemosController < ApplicationController
   end
 
   def ingredient_params
-    params.require(:ingredient).permit(:ingredient_name, :calorie, :amount)
+    params.require(:ingredient).permit(:ingredient_name, :calorie, :amount, :user_id)
   end
 end
