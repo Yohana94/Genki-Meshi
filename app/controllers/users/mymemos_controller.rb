@@ -1,6 +1,14 @@
 class Users::MymemosController < ApplicationController
   def show
     @mymemo = current_user.mymemos.find_by_id(params[:id])
+    @mymemo.ingredients.each do |item|
+      # binding.pry
+      @mymemo.mymemos_ingredients.each do |m|
+        if item[:ingredient_id] == m[:ingredient_id]
+          item['amount'] = m.amount
+        end
+      end
+    end
   end
 
  def create

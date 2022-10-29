@@ -4,4 +4,7 @@ class Ingredient < ApplicationRecord
   belongs_to :recipe, optional: true
   has_one_attached :image
 
+  def total(amount)
+    calorie * amount
+  end
 end

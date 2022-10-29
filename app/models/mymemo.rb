@@ -4,10 +4,8 @@ class Mymemo < ApplicationRecord
   has_many :ingredients, through: :mymemos_ingredients
 
   def total_calorie
-    mymemos_ingredients.sum(&:total_calorie)
-    # mymemos_ingredients.sum {|m| m.total_calorie }
-    # mymemos_ingredients.sum do |m|
-    #   m.total_calorie
-    # end
+    mymemos_ingredients.sum do |mymemos_ingredient|
+      mymemos_ingredient.ingredient.total(mymemos_ingredient.amount)
+    end
   end
 end

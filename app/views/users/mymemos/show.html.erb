@@ -20,18 +20,18 @@
 
           <tfoot>
             <% @mymemo.mymemos_ingredients.each do |mymemos_ingredient| %>
-              <% if mymemos_ingredient.total_calorie >= 0 %>
+              <% if mymemos_ingredient.ingredient.total(mymemos_ingredient.amount) >= 0 %>
                 <tr>
                   <th><%= mymemos_ingredient.ingredient.ingredient_name %></th>
                   <th><%= mymemos_ingredient.ingredient.calorie %></th>
 　　              <th><%= mymemos_ingredient.amount %></th>
 
                   <th>
-                    <%= mymemos_ingredient.total_calorie %>
+                    <%= mymemos_ingredient.ingredient.total(mymemos_ingredient.amount) %>
                   </th>
                   <th><%= link_to "削除", users_mymemos_ingredient_path(mymemos_ingredient), method: :delete, class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
                 </tr>
-              <%end%>
+              <% end %>
             <% end %>
           </tfoot>
         </table>

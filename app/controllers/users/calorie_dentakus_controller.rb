@@ -25,13 +25,11 @@ class Users::CalorieDentakusController < ApplicationController
          # @ingredient.update(amount: ingredient[:amount].to_i)
          mymemo = current_user.mymemos.new
          # mymemo.mymemos_ingredients.new(ingredient_id: @ingredient.id).save
-         @total += @ingredient.calorie * ingredient[:amount].to_i
+         @total += @ingredient.total(ingredient[:amount].to_i)
          next if ingredient[:amount].to_i.zero? #　選んでない材料をなくすため
          @resources << { id: @ingredient.id, amount: ingredient[:amount].to_i } # Hash
       end
     end
-
-
   end
 
   def create

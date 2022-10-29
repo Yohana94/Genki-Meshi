@@ -1,6 +1,6 @@
 class Admins::RecipesController < ApplicationController
   def index
-    @recipes = Recipe.page(params[:page]).per(6)
+    @recipes = Recipe.page(params[:page]).per(1)
   end
 
   def new
