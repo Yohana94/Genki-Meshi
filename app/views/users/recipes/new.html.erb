@@ -1,6 +1,5 @@
-
 <section class="section">
-  <div class="container">
+  <div class="container has-background-success-light">
     <div class="columns is-centered">
       <div class="column is-7">
 
@@ -8,102 +7,102 @@
           <h1 class="title has-text-centered has-text-link">レシピ新規登録</h1>
         </div></br>
 
-<%= form_with model: @recipe, url: users_recipes_path, method: :post do |f| %>
-<div class="field is-horizontal">
-  <div class="field-label is-normal">
-    <label class="label has-text-info">レシピ画像</label>
-  </div>
-  <div class="field-body">
-    <div class="field is-narrow">
-      <div class="control">
-          <div class="control">
-            <%= f.file_field :image, accept: "image/*" %>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
-
-<div class="field is-horizontal">
-  <div class="field-label">
-    <label class="label has-text-info">レシピ名</label>
-  </div>
-  <div class="field-body">
-    <div class="field is-narrow">
-      <div class="control">
-        <%= f.text_field :recipe_name %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="field is-horizontal">
-  <div class="field-label is-normal">
-    <label class="label has-text-info">作り方</label>
-  </div>
-  <div class="field-body">
-    <div class="field">
-      <div class="control">
-         <%= f.text_area :body %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="field is-horizontal">
-  <div class="field-label is-normal">
-    <label class="label has-text-info">ジャンル</label>
-  </div>
-  <div class="field-body">
-    <div class="field">
-      <div class="control">
-        <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></div>
-    </div>
-  </div>
-</div>
-
-<div class="field is-horizontal">
-  <div class="field-label is-normal">
-    <label class="label has-text-info">材料</label>
-  </div>
-  <div class="field-body">
-    <div class="field">
-      <div class="control">
-         <%= f.text_area :composition %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="field is-horizontal">
-  <div class="field-label is-normal">
-    <label class="label has-text-info">情報 栄養</label>
-  </div>
-  <div class="field-body">
-    <div class="field">
-      <div class="control">
-         <%= f.text_area :nutrition %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="field is-horizontal">
-  <div class="field-label">
-    <!-- Left empty for spacing -->
-  </div>
-  <div class="field-body">
-    <div class="field">
-      <div class="control">
-        <div class="action">
-          <%= f.submit '投稿', class: "button is-success" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- <% end %>
-    </div>
-    </div>
+          <%= form_with model: @recipe, url: users_recipes_path, method: :post do |f| %>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label has-text-info">レシピ画像</label>
+              </div>
+                <div class="field-body">
+                  <div class="field is-narrow">
+                    <div class="control">
+                      <div class="control">
+                        <%= f.file_field :image, accept: "image/*" %>
+                      </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label has-text-info">レシピ名</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-narrow">
+                  <div class="control">
+                    <%= f.text_field :recipe_name %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label has-text-info">作り方</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                     <%= f.text_area :body %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label has-text-info">ジャンル</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label has-text-info">材料</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                     <%= f.text_area :composition %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label has-text-info">情報 栄養</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                     <%= f.text_area :nutrition %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <!-- Left empty for spacing -->
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <div class="action">
+                      <%= f.submit '投稿', class: "button is-success" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <% end %>
+                </div>
+                </div>
   </div>
 </section>
