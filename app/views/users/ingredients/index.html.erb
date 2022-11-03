@@ -4,46 +4,21 @@
   </h1>
 </section>
 
-<section class="section">
-  <div class="container">
-    <%= form_with  url: users_calorie_dentakus_path, method: :get do |f| %>
+<%= form_with  url: users_calorie_dentakus_path, method: :get do |f| %>
 
-      <div class="columns is-multiline">
-        <% @ingredients.each_with_index do |ingredient, index| %>
+<% end %>
 
-          <div class="column is-3">
-            <div class="card notification is-info">
-              <h2 class="has-text-centered"><%= ingredient.ingredient_name %></h2></br>
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <%= image_tag ingredient.image, size: "64x64" %>
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <h2>
-                        <%= f.select "ingredients[][amount]", (0..20).map {|n| [n, {hoge: "hoge"}]},{},{class: "amount", id: "#{ingredient.id}"} %>
-                        <%= f.hidden_field "ingredients[][calorie]", {value: ingredient.calorie}  %>
-                        <%= f.hidden_field "ingredients[][ingredient_id]", {value: ingredient.id}  %>
-                    </h2>
-                  </div>
-                  <div class="media-content">
-                    <div class="titzale"><%= ingredient.calorie %> kal</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        <% end %>
-      </div>
-
-      <% if user_signed_in? %>
-        <div class="container m-4 p-4 has-text-centered"><%= f.submit "カロリー計算" %></div>
-      <% end %>
-    <% end %>
-  </div>
+<section class="section" id="ingredients_multiline">
+  <%= render 'users/ingredients/form', ingredients: @ingredients %>
 </section>
+<%= debug params %>
+
+<script>
+  var ingredient_data = {}
+  $('.amount').on('change', (e) => {
+    ingredient_data[$(e.target).attr('id')] = Number($(e.target).val())
+    $('#ingredient_data').val(JSON.stringify(ingredient_data))
+  });
+</script>
 
 

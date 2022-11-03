@@ -1,35 +1,18 @@
 class Users::CalorieDentakusController < ApplicationController
   def index
-    arr = []
-    # params.each do |key, value|
-    #   if key.split("-").length == 2
-    #   arr.push([  key.split("-")[1] , value ])
-    # end
-    # end
-    items = params[:ingredients]
-    items.each do |item|
+    items =JSON.parse(params[:ingredients])#it`s javasript code for object method
+    @ingredients = items.each.map do |k, v|#for bringing key and value from item to delete directly
       # binding.pry
-      ingredient = Ingredient.find(item[:ingredient_id])
-     arr.push(item[:amount].to_i * ingredient.calorie)
-    end
-
-    @ingredients = Ingredient.page(params[:page]).per(6)
-    @selected_ingredients = params[:ingredients]
-    @total = 0
-    # binding.irb
-
-    @resources = [] # 材料のIDと個数をいれる配列
-    if params[:ingredients].present?
-       params[:ingredients].each do |ingredient|
-         @ingredient = Ingredient.find(ingredient[:ingredient_id])
-         # @ingredient.update(amount: ingredient[:amount].to_i)
-         mymemo = current_user.mymemos.new
-         # mymemo.mymemos_ingredients.new(ingredient_id: @ingredient.id).save
-         @total += @ingredient.total(ingredient[:amount].to_i)
-         next if ingredient[:amount].to_i.zero? #　選んでない材料をなくすため
-         @resources << { id: @ingredient.id, amount: ingredient[:amount].to_i } # Hash
+      if v != 0 || params[:delete_ingredient] != k #when it`s not zero or sending the params
+        ingredient = Ingredient.find(k)
+        ingredient.amount = v
+        ingredient
       end
-    end
+    end.compact
+
+    @total = @ingredients.map{|o| o.calorie * o.amount }.sum
+    @resources = @ingredients.map{|o| { id: o.id, amount: o.amount }}
+    params[:ingredients] = Hash[*@ingredients.map{|o| [o.id, o.amount]}.flatten].to_json 
   end
 
   def create

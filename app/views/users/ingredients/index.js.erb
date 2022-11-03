@@ -1,0 +1,5 @@
+$('#ingredients_multiline').html("<%=j render 'users/ingredients/form', ingredients: @ingredients %>");
+$('.amount').on('change', (e) => {
+  ingredient_data[$(e.target).attr('id')] = Number($(e.target).val())
+  $('#ingredient_data').val(JSON.stringify(ingredient_data))
+});

@@ -19,20 +19,14 @@
          </thead>
 
         <tfoot>
-          <%num = 0 %>
           <%# @ingredients.each do |ingredient| %>
-            <% @selected_ingredients.each do |selected_ingredient| %>
+            <% @ingredients.each do |ingredient| %>
               <tr>
-
-                <% if selected_ingredient[:amount].to_i > 0  %>
-                  <th><%= Ingredient.find(selected_ingredient[:ingredient_id]).ingredient_name %></th>
-                  <th><%= selected_ingredient[:calorie] %></th>
-                  <th><%= selected_ingredient[:amount] %></th>
-                  <% total =  (selected_ingredient[:calorie].to_i) * selected_ingredient[:amount].to_i%>
-                  <th><%= total %></th>
-                  <% num += total%>
-                  <th><%= link_to "削除", users_calorie_dentakus_path(ingredients: params.permit!["ingredients"].reject {|ingredient| ingredient[:ingredient_id].to_i == selected_ingredient[:ingredient_id].to_i}) ,class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
-                <% end %>
+                  <th><%= ingredient.ingredient_name %></th>
+                  <th><%= calorie = ingredient.calorie %></th>
+                  <th><%= amount = ingredient.amount %></th>
+                  <th><%= calorie * amount %></th>
+                  <th><%= link_to "削除", users_calorie_dentakus_path(ingredients: params[:ingredients], delete_ingredient: ingredient.id), class:"button is-danger","data-confirm"=>"本当に削除しますか？" %></th>
               </tr>
             <% end %>
 
