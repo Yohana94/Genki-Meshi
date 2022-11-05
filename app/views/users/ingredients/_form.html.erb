@@ -29,12 +29,15 @@
             </div>
           </div>
         </div>
-      <% end %>  
+      <% end %>
     </div>
-  
+
     <% if user_signed_in? %>
       <div class="container m-4 p-4 has-text-centered"><%= f.submit "カロリー計算" %></div>
     <% end %>
   </div>
 <% end %>
-<%= paginate @ingredients, remote: true %>
+
+<div style="position:relative; width:33.3333%; padding-right: 15px; padding-left:15px; margin-left: 33.3333%;">
+  <%= paginate @ingredients, remote: true %>
+</div>
