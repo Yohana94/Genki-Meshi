@@ -33,7 +33,7 @@
       <nav class="level">
         <div class="columns">
           <div>
-            <% if @user.mymemos.any? %> #just one or not?
+            <!--<% if @user.mymemos.any? %>　#just one or not?-->
             <%= link_to "マイメモ", users_mymemo_path(@user.mymemos.last.id), class:"column box has-background-info-dark has-text-link-light m-4"%>
             <% end %>
           </div>
