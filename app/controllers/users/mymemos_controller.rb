@@ -5,24 +5,24 @@ class Users::MymemosController < ApplicationController
       # binding.pry
       @mymemo.mymemos_ingredients.each do |m|
         if item[:ingredient_id] == m[:ingredient_id]
-          item['amount'] = m.amount
+          item["amount"] = m.amount
         end
       end
     end
   end
 
- def create
-   # param(String) to @resouces(Hash)
+  def create
+    # param(String) to @resouces(Hash)
     mymemo = current_user.mymemos.new
     params[:ingredient].each do |ingredient|
-      id, amount = ingredient.split(' ')
-      mymemo.mymemos_ingredients.new(ingredient_id: id, amount: amount)
+      id, amount = ingredient.split(" ")
+      mymemo.mymemos_ingredients.new(ingredient_id: id, amount:)
     end
     # User.new(name: "aa").save
     # User.create(name: "aa")
     mymemo.save!
     redirect_to users_mymemo_path(mymemo.id)
- end
+  end
 
   def destroy
     # binding.pry

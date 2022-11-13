@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admins::IngredientsController < ApplicationController
   def new
     @ingredient = Ingredient.new
@@ -23,8 +25,7 @@ class Admins::IngredientsController < ApplicationController
   end
 
   private
-
-  def ingredient_params
-    params.require(:ingredient).permit(:ingredient_name, :image, :calorie)
-  end
+    def ingredient_params
+      params.require(:ingredient).permit(:ingredient_name, :image, :calorie)
+    end
 end

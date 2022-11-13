@@ -1,18 +1,18 @@
 class Users::CalorieDentakusController < ApplicationController
   def index
-    items =JSON.parse(params[:ingredients])#it`s javasript code for object method
-    @ingredients = items.each.map do |k, v|#for bringing key and value from item to delete directly
+    items = JSON.parse(params[:ingredients]) # it`s javasript code for object method
+    @ingredients = items.each.map do |k, v| # for bringing key and value from item to delete directly
       # binding.pry
-      if v != 0 || params[:delete_ingredient] != k #when it`s not zero or sending the params
+      if v != 0 || params[:delete_ingredient] != k # when it`s not zero or sending the params
         ingredient = Ingredient.find(k)
         ingredient.amount = v
         ingredient
       end
     end.compact
 
-    @total = @ingredients.map{|o| o.calorie * o.amount }.sum
-    @resources = @ingredients.map{|o| { id: o.id, amount: o.amount }}
-    params[:ingredients] = Hash[*@ingredients.map{|o| [o.id, o.amount]}.flatten].to_json 
+    @total = @ingredients.map { |o| o.calorie * o.amount }.sum
+    @resources = @ingredients.map { |o| { id: o.id, amount: o.amount } }
+    params[:ingredients] = Hash[*@ingredients.map { |o| [o.id, o.amount] }.flatten].to_json
   end
 
   def create
@@ -30,7 +30,7 @@ class Users::CalorieDentakusController < ApplicationController
 
   private
 
-  def calorie_dentaku_params
-    params.require(:calorie_dentaku).permit(:calorie, :amount, :ingredient_name)
-  end
+    def calorie_dentaku_params
+      params.require(:calorie_dentaku).permit(:calorie, :amount, :ingredient_name)
+    end
 end

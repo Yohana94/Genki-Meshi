@@ -5,6 +5,8 @@ class Recipe < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :genre
   has_many :ingredients
+  has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def self.search_by(search_term)
     if search_term.present?
@@ -13,5 +15,9 @@ class Recipe < ApplicationRecord
     else
       Recipe.all
     end
+  end
+
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
   end
 end

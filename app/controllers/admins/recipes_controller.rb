@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admins::RecipesController < ApplicationController
   def index
     @recipes = Recipe.page(params[:page]).per(6)
@@ -20,7 +22,7 @@ class Admins::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
 
     if @recipe.update(recipe_params)
-      flash[:notice]="You have updated recipe successfully."
+      flash[:notice] = "You have updated recipe successfully."
       redirect_to admins_recipe_path(@recipe.id)
     else
       render :edit
@@ -42,8 +44,7 @@ class Admins::RecipesController < ApplicationController
   end
 
   private
-
-  def recipe_params
-    params.require(:recipe).permit(:recipe_name, :image, :body, :nutrition, :genre_id, :composition)
-  end
+    def recipe_params
+      params.require(:recipe).permit(:recipe_name, :image, :body, :nutrition, :genre_id, :composition)
+    end
 end

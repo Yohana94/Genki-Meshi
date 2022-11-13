@@ -1,16 +1,16 @@
 class Users::RecipesController < ApplicationController
   def index
-     if params[:genre_id].present?
-       genre = Genre.find(params[:genre_id])
-       @recipes = genre.recipes.page(params[:page]).per(6)
-     else
-       @recipes = Recipe.where.not(admin_id: nil)
-       @recipes = @recipes.page(params[:page]).per(6)
-     end
-     if params[:search].present?
-       @recipes = Recipe.search_by(params[:search])
-       @recipes = @recipes.page(params[:page]).per(6)
-     end
+    if params[:genre_id].present?
+      genre = Genre.find(params[:genre_id])
+      @recipes = genre.recipes.page(params[:page]).per(6)
+    else
+      @recipes = Recipe.where.not(admin_id: nil)
+      @recipes = @recipes.page(params[:page]).per(6)
+    end
+    if params[:search].present?
+      @recipes = Recipe.search_by(params[:search])
+      @recipes = @recipes.page(params[:page]).per(6)
+    end
   end
 
   def create
@@ -28,10 +28,11 @@ class Users::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def search
-     @recipes = Recipe.search(params[:search])
+    @recipes = Recipe.search(params[:search])
   end
 
   def destroy
@@ -41,7 +42,7 @@ class Users::RecipesController < ApplicationController
     redirect_to users_user_path(user.id), notice: "レシピを削除しました。"
   end
 
- def recipe_params
+  def recipe_params
     params.require(:recipe).permit(:recipe_name, :image, :body, :nutrition, :genre_id, :composition)
- end
+  end
 end

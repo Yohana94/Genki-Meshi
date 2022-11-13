@@ -26,6 +26,7 @@
               <div class="content">
                 <time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
                 <%= link_to "もっと見る", users_recipe_path(recipe.id), class:"button is-link" %>
+                <p><%= link_to "#{recipe.post_comments.count} コメント", users_recipe_path(recipe.id) %></p>
               </div>
             </div>
           </div>

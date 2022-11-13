@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions: 'users/sessions',
-    passwords: 'users/passwords'
+    registrations: "users/registrations",
+    sessions: "users/sessions",
+    passwords: "users/passwords"
   }
 
   devise_for :admins, controllers: {
-    registrations: 'admins/registrations',
-    sessions: 'admins/sessions',
-    passwords: 'admins/passwords'
+    registrations: "admins/registrations",
+    sessions: "admins/sessions",
+    passwords: "admins/passwords"
   }
 
   namespace :admins do
-
     resources :ingredients, only: [:new, :create, :index, :destroy]
     #   get 'ingredients/new'
     #   get 'ingredients/create'
@@ -22,14 +21,7 @@ Rails.application.routes.draw do
     #   get 'users/show'
     #   get 'users/edit'
     #   patch 'users/update'
-    resources :genres, only: [:index, :create, :edit, :update, :new] do
-      collection do
-        get :category1
-        get :category2
-        get :category3
-        get :category4
-      end
-    end
+    resources :genres, only: [:index, :create, :edit, :update, :new]
     # get 'genres/index'
     # post 'genres/create'
     # get 'genres/edit'
@@ -42,18 +34,23 @@ Rails.application.routes.draw do
     # get 'recipes/show'
     # get 'recipes/edit'
     # resources :homes, only: [:top]
-    get 'homes/top'
+    get "homes/top"
+
+    post 'recipes/:id/post_comments', to: 'post_comments#create', as: :post_comments
+    delete 'recipes/:id/post_comments/:post_comments_id', to: 'post_comments#destroy', as: :destroy_post_comments
+
   end
 
   namespace :users do
-
+    post 'recipes/:id/favorites', to: 'favorites#create', as: :favorites
+    delete 'recipes/:id/favorites', to: 'favorites#destroy', as: :destroy_favorites
     resources :users, only: [:show, :edit, :update, :create]
     resources :calorie_dentakus, only: [:index, :destroy]
-     # get 'calorie_dentakus/show'
+    # get 'calorie_dentakus/show'
     resources :sessions, only: [:new, :create, :destroy]
-      # get 'sessions/new'
-      # post 'sessions/create'
-      # delete 'sessions/destroy'
+    # get 'sessions/new'
+    # post 'sessions/create'
+    # delete 'sessions/destroy'
     resources :homes, only: [] do
       collection do
         get :top
@@ -66,12 +63,12 @@ Rails.application.routes.draw do
     resources :ingredients, only: [:index]
     resources :mymemos, only: [:show, :destroy, :create]
     resources :recipes, only: [:create, :new, :index, :show, :destroy] do
-
       collection do
         get :search
       end
     end
   end
-  post '/users/recipes/new', to: "users/recipes#new"
+  post "/users/recipes/new", to: "users/recipes#new"
   root to: "users/homes#top"
+
 end

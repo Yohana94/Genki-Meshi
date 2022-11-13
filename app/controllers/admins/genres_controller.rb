@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admins::GenresController < ApplicationController
   def index
     @genres = Genre.all
@@ -37,8 +39,7 @@ class Admins::GenresController < ApplicationController
   end
 
   private
-
-  def genre_params
-    params.require(:genre).permit(:genre_name)
-  end
+    def genre_params
+      params.require(:genre).permit(:genre_name)
+    end
 end
