@@ -42,7 +42,7 @@
               <article class="media">
                 <div class="media-left">
                   <div>
-                    <%= form_with model: [@recipe, @post_comment], url:  admins_post_comments_path do |f| %>
+                    <%= form_with model: [@recipe, @post_comment], url: users_post_comments_path do |f| %>
                       <%#= f.hidden_field :recipe_id, value: @recipe.id %>
                       <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %></br>
                       <%= f.submit "送信する", class:"button is-primary" %>
@@ -60,7 +60,7 @@
                              <%= post_comment.created_at.strftime('%Y/%m/%d') %>
                              <%= post_comment.comment %>
                              <% if post_comment.user == current_user %>
-                              <%= link_to "削除", admins_destroy_post_comments_path(id: post_comment.recipe, post_comments_id: post_comment), method: :delete %>
+                              <%= link_to "削除", users_destroy_post_comments_path(id: post_comment.recipe, post_comments_id: post_comment), method: :delete %>
                              <% end %>
                              </div>
                            <% end %>

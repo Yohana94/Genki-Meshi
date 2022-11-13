@@ -36,8 +36,6 @@ Rails.application.routes.draw do
     # resources :homes, only: [:top]
     get "homes/top"
 
-    post 'recipes/:id/post_comments', to: 'post_comments#create', as: :post_comments
-    delete 'recipes/:id/post_comments/:post_comments_id', to: 'post_comments#destroy', as: :destroy_post_comments
 
   end
 
@@ -67,6 +65,8 @@ Rails.application.routes.draw do
         get :search
       end
     end
+    post 'recipes/:id/post_comments', to: 'post_comments#create', as: :post_comments
+    delete 'recipes/:id/post_comments/:post_comments_id', to: 'post_comments#destroy', as: :destroy_post_comments
   end
   post "/users/recipes/new", to: "users/recipes#new"
   root to: "users/homes#top"
