@@ -1,5 +1,5 @@
 <div class="box">
-  <div class="tile is-ancestor">
+
 
     <div class="tile is-ancestor">
       <div class="tile is-vertical is-12">
@@ -16,7 +16,7 @@
           <div class="tile is-8 is-vertical">
             <div class="tile">
 
-              <div class="tile is-parent  has-background-warning-light">
+              <div class="tile is-parent has-background-warning-light">
                 <article class="tile is-child box">
                   <p class="title">材料</p>
                   <h4><%= @recipe.composition %></h4>
@@ -38,7 +38,7 @@
               </article>
             </div>
 
-            <div class="box has-background-warning-light">
+            <div class="tile is-parent has-background-danger-light">
               <article class="media">
                 <div class="media-left">
                   <div>
@@ -51,18 +51,21 @@
                 </div>
                 <div class="media-content">
                   <div class="content">
-                    <p>
+                    <div>
                       <strong class="">コメント件数：</strong> <small><%= @recipe.post_comments.count %></small>
                       <br>
-                       <% @recipe.post_comments.each do |post_comment| %>
-                         <%= post_comment.user.name %>
-                         <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-                         <%= post_comment.comment %>
-                         <% if post_comment.user == current_user %>
-                          <%= link_to "削除", admins_destroy_post_comments_path(id: post_comment.recipe, post_comments_id: post_comment), method: :delete %>
-                         <% end %>
-                       <% end %>
-                    </p>
+                       <div>
+                           <% @recipe.post_comments.each do |post_comment| %>
+                             <div><%= post_comment.user.name %>
+                             <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+                             <%= post_comment.comment %>
+                             <% if post_comment.user == current_user %>
+                              <%= link_to "削除", admins_destroy_post_comments_path(id: post_comment.recipe, post_comments_id: post_comment), method: :delete %>
+                             <% end %>
+                             </div>
+                           <% end %>
+                       </div>
+                    </div>
                   </div>
                   <nav class="level is-mobile">
                             <!--「いいね機能」-->
@@ -91,5 +94,5 @@
         </div>
     </div>
 
-  </div>
+
 </div>
