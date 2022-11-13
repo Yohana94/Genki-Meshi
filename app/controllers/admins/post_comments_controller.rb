@@ -1,4 +1,5 @@
 class  Admins::PostCommentsController < ApplicationController
+  before_action :authenticate_admin!
   def create
     recipe = Recipe.find(params[:id])
     comment = current_user.post_comments.new(post_comment_params)
